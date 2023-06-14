@@ -33,6 +33,8 @@ class SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Text("This is the splash screen");
+    return Scaffold(
+      body: const Text("This is the splash screen"),
+    );
   }
 }
