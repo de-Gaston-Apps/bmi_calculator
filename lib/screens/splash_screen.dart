@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'home_screen.dart';
+import '../vars/globals.dart';
+import '../widgets/scaffold_container.dart';
+import 'main_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,11 +17,11 @@ class SplashScreenState extends State<SplashScreen> {
   // around the screen.
 
   void switchScreenOnWait() {
-    Future.delayed(const Duration(seconds: 3)).then(
+    Future.delayed(const Duration(seconds: SPLASH_SCREEN_TIMER)).then(
       (value) => {
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
+          MaterialPageRoute(builder: (context) => const MainScreen()),
         )
       },
     );
@@ -33,8 +35,20 @@ class SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const Text("This is the splash screen"),
+    return MyScaffoldContainerBackground(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "Splash Screen",
+            style: TextStyle(
+              color: MINT_GREEN,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

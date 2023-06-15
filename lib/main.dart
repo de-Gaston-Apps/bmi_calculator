@@ -1,4 +1,6 @@
 import 'package:bmi_calculator/screens/splash_screen.dart';
+import 'package:bmi_calculator/vars/globals.dart';
+import 'package:bmi_calculator/vars/theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,11 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      title: APP_NAME,
+      theme: MyTheme.themeDataLight,
+      darkTheme: MyTheme.themeDataDark,
       home: const SplashScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
