@@ -18,7 +18,20 @@ class MyScaffoldContainerBackgroundState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: widget.showAppBar ? AppBar(title: const Text(APP_NAME)) : null,
+      appBar: widget.showAppBar
+          ? AppBar(
+              title: const Text(APP_NAME),
+              actions: [
+                IconButton(
+                  icon: const Icon(Icons.shopping_cart),
+                  tooltip: 'Open shopping cart',
+                  onPressed: () {
+                    debugPrint("You pressed appbar button");
+                  },
+                ),
+              ],
+            )
+          : null,
       body: Container(
         alignment: Alignment.center,
         decoration: Theme.of(context).brightness == Brightness.dark

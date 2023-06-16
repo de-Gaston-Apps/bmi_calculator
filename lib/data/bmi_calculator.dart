@@ -3,6 +3,8 @@ import 'package:bmi_calculator/vars/globals.dart';
 import 'bmi_error.dart';
 
 class BmiCalculator {
+  bool isKg = false;
+  bool isMeters = false;
 // BMI = weight (kg)  / height^2 (meters)
   double getBmi({
     double weightKg = 0,

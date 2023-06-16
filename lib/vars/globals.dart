@@ -12,6 +12,9 @@ enum BmiCategory { under, normal, over, obese }
 
 const double BMI_ERROR = -1;
 
+const List<String> HEIGHT_OPTIONS = ["Feet", "Centimeters"];
+const List<String> WEIGHT_OPTIONS = ["Pounds", "Kilograms"];
+
 /*
 *********************************** Colors ************************************* 
 */
