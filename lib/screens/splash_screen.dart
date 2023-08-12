@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../vars/globals.dart';
 import '../widgets/scaffold_container.dart';
+import 'design_screen.dart';
 import 'main_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class SplashScreenState extends State<SplashScreen> {
       (value) => {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const MainScreen()),
+          MaterialPageRoute(builder: (context) => const DesignScreen()),
         )
       },
     );

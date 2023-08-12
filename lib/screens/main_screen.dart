@@ -1,10 +1,10 @@
 import 'package:bmi_calculator/data/bmi_calculator.dart';
 import 'package:bmi_calculator/vars/globals.dart';
 import 'package:bmi_calculator/widgets/number_input.dart';
-import 'package:bmi_calculator/widgets/weight_type_selector.dart';
+import 'package:bmi_calculator/widgets/weight_selector.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/height_type_selector.dart';
+import '../widgets/height_selector.dart';
 import '../widgets/scaffold_container.dart';
 
 class MainScreen extends StatefulWidget {
@@ -17,44 +17,36 @@ class MainScreen extends StatefulWidget {
 class MainScreenState extends State<MainScreen> {
   String hTitleOne = "Feet", hTitleTwo = "Inches", wTitle = "Lbs";
   BmiCalculator bmiCalculator = BmiCalculator();
-  double bmi = 0;
+  double height1 = BMI_ERROR, height2 = BMI_ERROR, weight = BMI_ERROR;
 
   void onHeightOneInput(String value) {
-    double? number = double.tryParse(value);
-    if (number == null) {
+    double? h1 = double.tryParse(value);
+    if (h1 == null) {
+      debugPrint("The input $value is not a valid height1");
       return;
     }
-    debugPrint("Height one is $number");
+    debugPrint("Height1 is $h1");
+    height1 = h1;
   }
 
   void onHeightTwoInput(String value) {
-    double? number = double.tryParse(value);
-    if (number == null) {
+    double? h2 = double.tryParse(value);
+    if (h2 == null) {
+      debugPrint("The input $value is not a valid height2");
       return;
     }
-    debugPrint("Height two is $number");
+    debugPrint("Height two is $h2");
+    height2 = h2;
   }
 
   void onWeightInput(String value) {
-    double? number = double.tryParse(value);
-    if (number == null) {
+    double? w = double.tryParse(value);
+    if (w == null) {
+      debugPrint("The input $value is not a valid weight");
       return;
     }
-    debugPrint("Weight is $number");
-  }
-
-  void onHeightTypeChange(String value) {
-    if (!HEIGHT_OPTIONS.contains(value)) {
-      return; // error
-    }
-    debugPrint("HeightType is $value");
-  }
-
-  void onWeightTypeChange(String value) {
-    if (!WEIGHT_OPTIONS.contains(value)) {
-      return; // error
-    }
-    debugPrint("WeightType is $value");
+    debugPrint("Weight is $w");
+    weight = w;
   }
 
   @override
@@ -65,20 +57,18 @@ class MainScreenState extends State<MainScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "BMI Calculator",
+            "BMI",
             style: TextStyle(
               color: MINT_GREEN,
               fontSize: 30,
               fontWeight: FontWeight.bold,
             ),
           ),
-          NumberInput(hTitleOne, onHeightOneInput),
-          HeightTypeSelector(onHeightTypeChange),
-          NumberInput(hTitleTwo, onHeightTwoInput),
-          NumberInput(wTitle, onWeightInput),
-          WeightTypeSelector(onWeightTypeChange),
+          // NumberInput(hTitleOne, onHeightOneInput),
+          // NumberInput(hTitleTwo, onHeightTwoInput),
+          // NumberInput(wTitle, onWeightInput),
           Text(
-            "$bmi",
+            "###",
             style: TextStyle(color: Colors.black, fontSize: 40),
           ),
         ],
