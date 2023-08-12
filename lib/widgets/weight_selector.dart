@@ -1,11 +1,11 @@
+import 'package:bmi_calculator/data/bmi_calculator.dart';
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 import '../vars/globals.dart';
 
 class WeightSelector extends StatefulWidget {
-  /* Returns the weight (in kg) as a double that the user inputted. */
-  final Function(double) callback;
+  final Function(double, bool) callback;
   const WeightSelector(this.callback, {super.key});
 
   @override
@@ -14,13 +14,16 @@ class WeightSelector extends StatefulWidget {
 
 class WeightSelectorState extends State<WeightSelector> {
   bool isMetric = false;
+  final int IMPER_INDEX = 0;
+  final int METRIC_INDEX = 1;
   List<String> labels = [WEIGHT_IMPER_TEXT, WEIGHT_METRIC_TEXT];
+  TextEditingController controller = TextEditingController();
 
   void textChanged(String s) {
-    double? d = double.tryParse(s);
-    if (d != null) {
-      widget.callback(d);
-      debugPrint("Sent $d to the callback function");
+    double? weight = double.tryParse(s);
+    if (weight != null) {
+      widget.callback(weight, isMetric);
+      debugPrint("Sent $weight (weight) to the callback");
     } else {
       debugPrint("Could not parse $s into a double");
     }
@@ -28,6 +31,8 @@ class WeightSelectorState extends State<WeightSelector> {
 
   void onSwitch(int? value) {
     debugPrint("Switch index is $value");
+    isMetric = (value == METRIC_INDEX);
+    textChanged(controller.text);
   }
 
   @override
@@ -49,22 +54,16 @@ class WeightSelectorState extends State<WeightSelector> {
                   height: 50,
                   width: 150,
                   child: TextField(
-                    decoration: const InputDecoration(labelText: WEIGHT_TEXT),
+                    controller: controller,
+                    decoration: InputDecoration(
+                      labelText:
+                          isMetric ? WEIGHT_LABEL_METRIC : WEIGHT_LABEL_IMPER,
+                    ),
                     keyboardType: TextInputType.number,
                     onChanged: textChanged,
                     onSubmitted: textChanged,
                   ),
                 ),
-                // FlutterSwitch(
-                //   showOnOff: true,
-                //   value: isMetric,
-                //   onToggle: onSwitch,
-                //   activeColor: MINT_GREEN,
-                //   activeText: WEIGHT_METRIC_TEXT,
-                //   inactiveText: WEIGHT_IMPER_TEXT,
-                //   activeTextFontWeight: FontWeight.normal,
-                //   inactiveTextFontWeight: FontWeight.normal,
-                // ),
                 ToggleSwitch(
                   isVertical: true,
                   radiusStyle: true,
@@ -83,8 +82,4 @@ class WeightSelectorState extends State<WeightSelector> {
       ),
     );
   }
-}
-
-class test {
-  Color a = Colors.purpleAccent;
 }

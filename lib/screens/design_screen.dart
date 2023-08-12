@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/data/bmi_calculator.dart';
+import 'package:bmi_calculator/data/bmi_error.dart';
 import 'package:bmi_calculator/vars/globals.dart';
 import 'package:bmi_calculator/widgets/weight_selector.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +15,45 @@ class DesignScreen extends StatefulWidget {
 }
 
 class DesignScreenState extends State<DesignScreen> {
-  String hTitleOne = "Feet", hTitleTwo = "Inches", wTitle = "Lbs";
+  double bmi = BMI_ERROR;
+  double height = BMI_ERROR;
+  double weight = BMI_ERROR;
+  BmiCalculator bmiCalculator = BmiCalculator();
 
-  void callbackTest(double height) {}
+  void heightCallback(double h, bool isMetric) {
+    if (!isMetric) {
+      height = bmiCalculator.feetToMeters(h);
+    }
+    updateBmi();
+  }
+
+  void weightCallback(double w, bool isMetric) {
+    if (!isMetric) {
+      weight = bmiCalculator.feetToMeters(w);
+    }
+    updateBmi();
+  }
+
+  void updateBmi() {
+    double newBmi;
+    try {
+      newBmi = bmiCalculator.getBmi(weight, height);
+    } on BmiException catch (e) {
+      debugPrint(e.cause);
+      return;
+    }
+
+    newBmi = makeBmiPretty(newBmi);
+
+    setState(() {
+      bmi = newBmi;
+    });
+  }
+
+  double makeBmiPretty(double bmi) {
+    // Round to one decimal point
+    return (bmi * 10).round() / 10;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +71,9 @@ class DesignScreenState extends State<DesignScreen> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const Text(
-            "20.2",
-            style: TextStyle(
+          Text(
+            "$bmi",
+            style: const TextStyle(
               color: TEXT_LIGHT,
               fontSize: 20,
             ),
@@ -46,8 +83,8 @@ class DesignScreenState extends State<DesignScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              WeightSelector(callbackTest),
-              HeightSelector(callbackTest),
+              WeightSelector(weightCallback),
+              HeightSelector(heightCallback),
             ],
           ),
         ],

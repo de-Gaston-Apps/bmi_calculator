@@ -23,10 +23,9 @@ class MyScaffoldContainerBackgroundState
               title: const Text(APP_NAME),
               actions: [
                 IconButton(
-                  icon: const Icon(Icons.shopping_cart),
-                  tooltip: 'Open shopping cart',
+                  icon: const Icon(Icons.settings),
                   onPressed: () {
-                    debugPrint("You pressed appbar button");
+                    debugPrint("You pressed settings button");
                   },
                 ),
               ],

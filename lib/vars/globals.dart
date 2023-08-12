@@ -13,12 +13,20 @@ enum BmiCategory { under, normal, over, obese }
 const double BMI_ERROR = -1;
 
 const String WEIGHT_TEXT = "Weight";
+const String WEIGHT_LABEL_METRIC = "Kilograms";
+const String WEIGHT_LABEL_IMPER = "Pounds";
 const String WEIGHT_METRIC_TEXT = "kg";
 const String WEIGHT_IMPER_TEXT = "lbs";
 
 const String HEIGHT_TEXT = "Height";
-const String HEIGHT_METRIC_TEXT = "cm";
-const String HEIGHT_IMPER_TEXT = "in";
+const String HEIGHT1_LABEL_METRIC = "Meters";
+const String HEIGHT1_LABEL_IMPER = "Feet";
+const String HEIGHT2_LABEL_METRIC = "Centimeters";
+const String HEIGHT2_LABEL_IMPER = "Inches";
+const String HEIGHT1_METRIC_TEXT = "m";
+const String HEIGHT1_IMPER_TEXT = "ft";
+const String HEIGHT2_METRIC_TEXT = "cm";
+const String HEIGHT2_IMPER_TEXT = "in";
 
 /*
 *********************************** Colors ************************************* 

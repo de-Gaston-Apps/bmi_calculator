@@ -1,28 +1,18 @@
+// ignore_for_file: constant_identifier_names
+import 'package:bmi_calculator/data/bmi_error.dart';
 import 'package:bmi_calculator/vars/globals.dart';
 
-import 'bmi_error.dart';
+const INCHES_PER_FOOT = 12;
+const CM_PER_METER = 100;
 
 class BmiCalculator {
-  bool isKg = false;
-  bool isMeters = false;
-// BMI = weight (kg)  / height^2 (meters)
-  double getBmi({
-    double weightKg = 0,
-    double weightLb = 0,
-    double heightM = 0,
-    double heightFt = 0,
-  }) {
-    if (weightKg == 0 && weightLb == 0) {
-      throw BmiException("Didn't specify a weight");
+  // BMI = weight (kg)  / height^2 (meters)
+  double getBmi(double weightKg, double heightM) {
+    if (weightKg == BMI_ERROR || heightM == BMI_ERROR) {
+      throw BmiException("At least one of the inputs was BMI_ERROR");
     }
-    if (heightM == 0 && heightFt == 0) {
-      throw BmiException("Didn't specify a height");
-    }
-    if (weightLb != 0) {
-      weightKg = lbToKg(weightLb);
-    }
-    if (heightFt != 0) {
-      heightM = feetToMeters(heightFt);
+    if (weightKg < 0 || heightM < 0) {
+      throw BmiException("At least one of the inputs was less than 0");
     }
     return weightKg / (heightM * heightM);
   }
