@@ -29,7 +29,7 @@ class DesignScreenState extends State<DesignScreen> {
 
   void weightCallback(double w, bool isMetric) {
     if (!isMetric) {
-      weight = bmiCalculator.feetToMeters(w);
+      weight = bmiCalculator.lbToKg(w);
     }
     updateBmi();
   }

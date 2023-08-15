@@ -1,4 +1,5 @@
-import 'package:bmi_calculator/data/bmi_calculator.dart';
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
@@ -14,6 +15,7 @@ class WeightSelector extends StatefulWidget {
 
 class WeightSelectorState extends State<WeightSelector> {
   bool isMetric = false;
+  int toggleIndex = 0;
   final int IMPER_INDEX = 0;
   final int METRIC_INDEX = 1;
   List<String> labels = [WEIGHT_IMPER_TEXT, WEIGHT_METRIC_TEXT];
@@ -33,6 +35,9 @@ class WeightSelectorState extends State<WeightSelector> {
     debugPrint("Switch index is $value");
     isMetric = (value == METRIC_INDEX);
     textChanged(controller.text);
+    setState(() {
+      toggleIndex = value ?? 0;
+    });
   }
 
   @override
@@ -67,6 +72,7 @@ class WeightSelectorState extends State<WeightSelector> {
                 ToggleSwitch(
                   isVertical: true,
                   radiusStyle: true,
+                  initialLabelIndex: toggleIndex,
                   inactiveBgColor: SOFT_GREY,
                   activeBgColors: [
                     [MINT_GREEN],

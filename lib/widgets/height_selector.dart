@@ -14,6 +14,7 @@ class HeightSelector extends StatefulWidget {
 
 class HeightSelectorState extends State<HeightSelector> {
   bool isMetric = false;
+  int initialIndex = 0;
   final int IMPER_INDEX = 0;
   final int METRIC_INDEX = 1;
   List<String> labels = [HEIGHT1_IMPER_TEXT, HEIGHT1_METRIC_TEXT];
@@ -49,6 +50,9 @@ class HeightSelectorState extends State<HeightSelector> {
     debugPrint("Switch index is $value");
     isMetric = (value == METRIC_INDEX);
     textChanged(controller1.text);
+    setState(() {
+      initialIndex = value ?? 0;
+    });
   }
 
   @override
@@ -103,6 +107,7 @@ class HeightSelectorState extends State<HeightSelector> {
                 ToggleSwitch(
                   isVertical: true,
                   radiusStyle: true,
+                  initialLabelIndex: initialIndex,
                   inactiveBgColor: SOFT_GREY,
                   activeBgColors: [
                     [MINT_GREEN],
