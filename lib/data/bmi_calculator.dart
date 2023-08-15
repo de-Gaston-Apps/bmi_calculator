@@ -11,8 +11,8 @@ class BmiCalculator {
     if (weightKg == BMI_ERROR || heightM == BMI_ERROR) {
       throw BmiException("At least one of the inputs was BMI_ERROR");
     }
-    if (weightKg < 0 || heightM < 0) {
-      throw BmiException("At least one of the inputs was less than 0");
+    if (weightKg <= 0 || heightM <= 0) {
+      throw BmiException("At least one of the inputs was less than or equal 0");
     }
     return weightKg / (heightM * heightM);
   }

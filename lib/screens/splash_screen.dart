@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../vars/globals.dart';
 import '../widgets/scaffold_container.dart';
-import 'design_screen.dart';
-import 'main_screen.dart';
+import 'bmi_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -22,7 +21,7 @@ class SplashScreenState extends State<SplashScreen> {
       (value) => {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const DesignScreen()),
+          MaterialPageRoute(builder: (context) => const BmiScreen()),
         )
       },
     );

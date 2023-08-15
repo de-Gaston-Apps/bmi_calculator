@@ -7,14 +7,14 @@ import 'package:flutter/material.dart';
 import '../widgets/height_selector.dart';
 import '../widgets/scaffold_container.dart';
 
-class DesignScreen extends StatefulWidget {
-  const DesignScreen({super.key});
+class BmiScreen extends StatefulWidget {
+  const BmiScreen({super.key});
 
   @override
-  State<DesignScreen> createState() => DesignScreenState();
+  State<BmiScreen> createState() => BmiScreenState();
 }
 
-class DesignScreenState extends State<DesignScreen> {
+class BmiScreenState extends State<BmiScreen> {
   double bmi = BMI_ERROR;
   double height = BMI_ERROR;
   double weight = BMI_ERROR;
@@ -23,6 +23,8 @@ class DesignScreenState extends State<DesignScreen> {
   void heightCallback(double h, bool isMetric) {
     if (!isMetric) {
       height = bmiCalculator.feetToMeters(h);
+    } else {
+      height = h;
     }
     updateBmi();
   }
@@ -30,6 +32,8 @@ class DesignScreenState extends State<DesignScreen> {
   void weightCallback(double w, bool isMetric) {
     if (!isMetric) {
       weight = bmiCalculator.lbToKg(w);
+    } else {
+      weight = w;
     }
     updateBmi();
   }
@@ -39,7 +43,7 @@ class DesignScreenState extends State<DesignScreen> {
     try {
       newBmi = bmiCalculator.getBmi(weight, height);
     } on BmiException catch (e) {
-      debugPrint(e.cause);
+      debugPrint("There was some kind of error! ${e.cause}");
       return;
     }
 

@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/data/bmi_calculator.dart';
 import 'package:toggle_switch/toggle_switch.dart';
@@ -14,7 +16,7 @@ class HeightSelector extends StatefulWidget {
 
 class HeightSelectorState extends State<HeightSelector> {
   bool isMetric = false;
-  int initialIndex = 0;
+  int toggleIndex = 0;
   final int IMPER_INDEX = 0;
   final int METRIC_INDEX = 1;
   List<String> labels = [HEIGHT1_IMPER_TEXT, HEIGHT1_METRIC_TEXT];
@@ -51,7 +53,7 @@ class HeightSelectorState extends State<HeightSelector> {
     isMetric = (value == METRIC_INDEX);
     textChanged(controller1.text);
     setState(() {
-      initialIndex = value ?? 0;
+      toggleIndex = value ?? 0;
     });
   }
 
@@ -107,7 +109,7 @@ class HeightSelectorState extends State<HeightSelector> {
                 ToggleSwitch(
                   isVertical: true,
                   radiusStyle: true,
-                  initialLabelIndex: initialIndex,
+                  initialLabelIndex: toggleIndex,
                   inactiveBgColor: SOFT_GREY,
                   activeBgColors: [
                     [MINT_GREEN],
