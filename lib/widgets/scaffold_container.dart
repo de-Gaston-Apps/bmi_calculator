@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/screens/info_screen.dart';
 import 'package:bmi_calculator/vars/strings.dart';
 import 'package:flutter/material.dart';
 import '../vars/theme.dart';
@@ -23,9 +24,13 @@ class MyScaffoldContainerBackgroundState
               title: const Text(APP_NAME),
               actions: [
                 IconButton(
-                  icon: const Icon(Icons.settings),
+                  icon: const Icon(Icons.info_outline_rounded),
                   onPressed: () {
-                    debugPrint("You pressed settings button");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const InfoScreen()),
+                    );
                   },
                 ),
               ],

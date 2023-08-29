@@ -13,6 +13,11 @@ const double BAR_HEIGHT = 16;
 
 const double BMI_ERROR = -1;
 
+const String ANDROID_STORE_URL =
+    "https://play.google.com/store/apps/dev?id=8230997084127446105";
+const String IOS_STORE_URL =
+    "https://apps.apple.com/us/developer/jonathan-de-gaston/id1656029142";
+
 /*
 *********************************** Colors ************************************* 
 */

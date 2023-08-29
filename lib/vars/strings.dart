@@ -29,3 +29,11 @@ const String OVER_WEIGHT_MESSAGE = "🤞\nover weight";
 const String OBESE1_WEIGHT_MESSAGE = "😢\nobese I";
 const String OBESE2_WEIGHT_MESSAGE = "🤢\nobese II";
 const String OBESE3_WEIGHT_MESSAGE = "🤢\nobese III";
+
+/// ------------------- Info page ------------------- ///
+const String SETTINGS_PAGE_TITLE = "Settings";
+const String OTHER_APPS_STRING = "Check out our other apps!";
+const String CONTACT_US_STRING = "Contact us";
+const String MY_CONTACT_EMAIL = "developerjon5@gmail.com";
+const String DEFAULT_EMAIL_SUBJECT = "$APP_NAME: Email for developers";
+const String DEFAULT_EMAIL_BODY = "Dear developers,\n";
