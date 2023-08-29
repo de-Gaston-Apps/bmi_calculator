@@ -37,3 +37,6 @@ const String CONTACT_US_STRING = "Contact us";
 const String MY_CONTACT_EMAIL = "developerjon5@gmail.com";
 const String DEFAULT_EMAIL_SUBJECT = "$APP_NAME: Email for developers";
 const String DEFAULT_EMAIL_BODY = "Dear developers,\n";
+
+const String LEARN_MORE = "Learn more";
+const String LEARN_MORE_ABOUT_BMI = "Click below to learn more about BMI!";

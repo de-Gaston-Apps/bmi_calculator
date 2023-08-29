@@ -33,6 +33,13 @@ class InfoScreenState extends State<InfoScreen> {
     );
   }
 
+  void onLearnMoreClick() {
+    launchUrl(
+      Uri.parse(CDC_BMI_ABOUT_URL),
+      mode: LaunchMode.externalApplication,
+    );
+  }
+
   void onContactClick() {
     launchUrl(
       Uri.parse(
@@ -44,10 +51,19 @@ class InfoScreenState extends State<InfoScreen> {
   @override
   Widget build(BuildContext context) {
     return MyScaffoldContainerBackground(
-      showAppBar: true,
+      showAppBar: false,
       child: Column(
         children: [
-          Text("Learn more about BMI"),
+          AppBar(
+            title: const Text(APP_NAME),
+          ),
+          const SizedBox(height: BIGGER_PADDING_SIZE),
+          const Text(LEARN_MORE_ABOUT_BMI),
+          const SizedBox(height: DEFALT_PADDING_SIZE),
+          ElevatedButton(
+            onPressed: onLearnMoreClick,
+            child: const Text(LEARN_MORE),
+          ),
 ////////////////////////////////////////////////////////////////////////////////
           const Spacer(),
 ////////////////////////////////////////////////////////////////////////////////
