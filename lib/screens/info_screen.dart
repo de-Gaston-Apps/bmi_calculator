@@ -68,7 +68,7 @@ class InfoScreenState extends State<InfoScreen> {
           const Spacer(),
 ////////////////////////////////////////////////////////////////////////////////
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, DEFALT_PADDING_SIZE),
             child: RichText(
               text: TextSpan(
                 text: OTHER_APPS_STRING,
