@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
-import '../vars/globals.dart';
+import 'package:bmi_calculator/vars/globals.dart';
+import 'package:bmi_calculator/vars/strings.dart';
 
 class WeightSelector extends StatefulWidget {
   final Function(double, bool) callback;
@@ -22,13 +23,8 @@ class WeightSelectorState extends State<WeightSelector> {
   TextEditingController controller = TextEditingController();
 
   void textChanged(String s) {
-    double? weight = double.tryParse(s);
-    if (weight != null) {
-      widget.callback(weight, isMetric);
-      debugPrint("Sent $weight (weight) to the callback");
-    } else {
-      debugPrint("Could not parse $s into a double");
-    }
+    double weight = double.tryParse(s) ?? BMI_ERROR;
+    widget.callback(weight, isMetric);
   }
 
   void onSwitch(int? value) {
@@ -48,38 +44,53 @@ class WeightSelectorState extends State<WeightSelector> {
         border: Border.all(color: Colors.black),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(DEFALT_PADDING_SIZE),
         child: Column(
           children: [
             const Text(WEIGHT_TEXT), // Subtitle for the box
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                SizedBox(
-                  height: 50,
-                  width: 150,
-                  child: TextField(
-                    controller: controller,
-                    decoration: InputDecoration(
-                      labelText:
-                          isMetric ? WEIGHT_LABEL_METRIC : WEIGHT_LABEL_IMPER,
+                Column(
+                  children: [
+                    SizedBox(
+                      height: 50,
+                      width: 100,
+                      child: TextField(
+                        controller: controller,
+                        decoration: InputDecoration(
+                          isDense: true,
+                          labelText: isMetric
+                              ? WEIGHT_LABEL_METRIC
+                              : WEIGHT_LABEL_IMPER,
+                        ),
+                        keyboardType: TextInputType.number,
+                        onChanged: textChanged,
+                        onSubmitted: textChanged,
+                      ),
                     ),
-                    keyboardType: TextInputType.number,
-                    onChanged: textChanged,
-                    onSubmitted: textChanged,
-                  ),
-                ),
-                ToggleSwitch(
-                  isVertical: true,
-                  radiusStyle: true,
-                  initialLabelIndex: toggleIndex,
-                  inactiveBgColor: SOFT_GREY,
-                  activeBgColors: [
-                    [MINT_GREEN],
-                    [MINT_GREEN],
+                    const SizedBox(
+                      height: 50,
+                      width: 100,
+                    ),
                   ],
-                  labels: labels,
-                  onToggle: onSwitch,
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.fromLTRB(DEFALT_PADDING_SIZE, 0, 0, 0),
+                  child: ToggleSwitch(
+                    minWidth: 50,
+                    isVertical: true,
+                    radiusStyle: true,
+                    initialLabelIndex: toggleIndex,
+                    inactiveBgColor: SOFT_GREY,
+                    activeBgColors: [
+                      [MINT_GREEN],
+                      [MINT_GREEN],
+                    ],
+                    labels: labels,
+                    onToggle: onSwitch,
+                  ),
                 ),
               ],
             ),

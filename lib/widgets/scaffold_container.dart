@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/vars/globals.dart';
+import 'package:bmi_calculator/vars/strings.dart';
 import 'package:flutter/material.dart';
 import '../vars/theme.dart';
 

@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:bmi_calculator/data/bmi_calculator.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
-import '../vars/globals.dart';
+import 'package:bmi_calculator/vars/globals.dart';
+import 'package:bmi_calculator/vars/strings.dart';
 
 class HeightSelector extends StatefulWidget {
   final Function(double, bool) callback;
@@ -45,7 +46,6 @@ class HeightSelectorState extends State<HeightSelector> {
       }
     }
     widget.callback(totalHeight, isMetric);
-    debugPrint("Sent $totalHeight (height) to the callback");
   }
 
   void onSwitch(int? value) {
@@ -65,7 +65,7 @@ class HeightSelectorState extends State<HeightSelector> {
         border: Border.all(color: Colors.black),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(DEFALT_PADDING_SIZE),
         child: Column(
           children: [
             const Text(HEIGHT_TEXT), // Subtitle for the box
@@ -75,11 +75,11 @@ class HeightSelectorState extends State<HeightSelector> {
                 Column(
                   children: [
                     SizedBox(
-                      height: 50,
-                      width: 150,
+                      width: 100,
                       child: TextField(
                         controller: controller1,
                         decoration: InputDecoration(
+                          isDense: true,
                           labelText: isMetric
                               ? HEIGHT1_LABEL_METRIC
                               : HEIGHT1_LABEL_IMPER,
@@ -90,11 +90,11 @@ class HeightSelectorState extends State<HeightSelector> {
                       ),
                     ),
                     SizedBox(
-                      height: 50,
-                      width: 150,
+                      width: 100,
                       child: TextField(
                         controller: controller2,
                         decoration: InputDecoration(
+                          isDense: true,
                           labelText: isMetric
                               ? HEIGHT2_LABEL_METRIC
                               : HEIGHT2_LABEL_IMPER,
@@ -106,17 +106,22 @@ class HeightSelectorState extends State<HeightSelector> {
                     ),
                   ],
                 ),
-                ToggleSwitch(
-                  isVertical: true,
-                  radiusStyle: true,
-                  initialLabelIndex: toggleIndex,
-                  inactiveBgColor: SOFT_GREY,
-                  activeBgColors: [
-                    [MINT_GREEN],
-                    [MINT_GREEN],
-                  ],
-                  labels: labels,
-                  onToggle: onSwitch,
+                Padding(
+                  padding:
+                      const EdgeInsets.fromLTRB(DEFALT_PADDING_SIZE, 0, 0, 0),
+                  child: ToggleSwitch(
+                    minWidth: 50,
+                    isVertical: true,
+                    radiusStyle: true,
+                    initialLabelIndex: toggleIndex,
+                    inactiveBgColor: SOFT_GREY,
+                    activeBgColors: [
+                      [MINT_GREEN],
+                      [MINT_GREEN],
+                    ],
+                    labels: labels,
+                    onToggle: onSwitch,
+                  ),
                 ),
               ],
             ),

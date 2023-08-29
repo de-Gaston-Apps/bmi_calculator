@@ -1,32 +1,17 @@
 // ignore_for_file: non_constant_identifier_names, constant_identifier_names
 import 'package:flutter/material.dart';
 
-const String APP_NAME = "BMI Calculator";
 const int SPLASH_SCREEN_TIMER = 1;
+const int ANIMATION_DURATION_MILLIS = 200;
 
-// Underweight = <18.5
-// Normal weight = 18.5–24.9
-// Overweight = 25–29.9
-// Obesity = BMI of 30 or greater
-enum BmiCategory { under, normal, over, obese }
+const double DEFALT_PADDING_SIZE = 10;
+const double BIGGER_PADDING_SIZE = 20;
+
+const double ARROW_HEIGHT = 48;
+const double ARROW_WIDTH = 30;
+const double BAR_HEIGHT = 16;
 
 const double BMI_ERROR = -1;
-
-const String WEIGHT_TEXT = "Weight";
-const String WEIGHT_LABEL_METRIC = "Kilograms";
-const String WEIGHT_LABEL_IMPER = "Pounds";
-const String WEIGHT_METRIC_TEXT = "kg";
-const String WEIGHT_IMPER_TEXT = "lbs";
-
-const String HEIGHT_TEXT = "Height";
-const String HEIGHT1_LABEL_METRIC = "Meters";
-const String HEIGHT1_LABEL_IMPER = "Feet";
-const String HEIGHT2_LABEL_METRIC = "Centimeters";
-const String HEIGHT2_LABEL_IMPER = "Inches";
-const String HEIGHT1_METRIC_TEXT = "m";
-const String HEIGHT1_IMPER_TEXT = "ft";
-const String HEIGHT2_METRIC_TEXT = "cm";
-const String HEIGHT2_IMPER_TEXT = "in";
 
 /*
 *********************************** Colors ************************************* 

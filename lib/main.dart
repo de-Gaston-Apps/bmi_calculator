@@ -1,5 +1,5 @@
 import 'package:bmi_calculator/screens/splash_screen.dart';
-import 'package:bmi_calculator/vars/globals.dart';
+import 'package:bmi_calculator/vars/strings.dart';
 import 'package:bmi_calculator/vars/theme.dart';
 import 'package:flutter/material.dart';
 
