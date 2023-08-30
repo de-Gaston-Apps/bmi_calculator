@@ -5,7 +5,8 @@ const int SPLASH_SCREEN_TIMER = 1;
 const int ANIMATION_DURATION_MILLIS = 200;
 
 const double DEFALT_PADDING_SIZE = 10;
-const double BIGGER_PADDING_SIZE = 20;
+const double BIGGER_PADDING_SIZE = DEFALT_PADDING_SIZE * 2;
+const double BAR_PADDING_SIZE = DEFALT_PADDING_SIZE * 4;
 const double MESSAGE_MAX_WIDTH = 600;
 
 const double ARROW_HEIGHT = 48;

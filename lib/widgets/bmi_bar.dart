@@ -1,7 +1,4 @@
 // ignore_for_file: constant_identifier_names
-
-import 'dart:html';
-
 import 'package:bmi_calculator/vars/globals.dart';
 import 'package:flutter/material.dart';
 
@@ -19,17 +16,20 @@ class BmiBar extends StatefulWidget {
 class BmiBarState extends State<BmiBar> {
   double calculateOffset() {
     double width = MediaQuery.of(context).size.width;
-    double barWidth = width - BIGGER_PADDING_SIZE - ARROW_WIDTH + 5;
+    double barWidth = width - BAR_PADDING_SIZE * 2;
+
+    double min = 0 - ARROW_WIDTH / 2; // 0 - (something) to make it negative
+    double max = barWidth - ARROW_WIDTH / 2;
 
     //1 is the min bmi and 45 is the max bmi
     if (widget.bmi <= MIN_BMI) {
-      return 0;
+      return min;
     }
     if (widget.bmi >= MAX_BMI) {
-      return barWidth;
+      return max;
     }
 
-    double offset = (barWidth / MAX_BMI) * (widget.bmi);
+    double offset = (barWidth / MAX_BMI) * (widget.bmi) - ARROW_WIDTH / 2;
     return offset;
   }
 
@@ -51,7 +51,7 @@ class BmiBarState extends State<BmiBar> {
               SizedBox(width: MediaQuery.of(context).size.width, height: 48),
               PositionedDirectional(
                 top: 0,
-                start: 167,
+                start: offset,
                 child: Image.asset("assets/images/arrow.png"),
               ),
             ],
