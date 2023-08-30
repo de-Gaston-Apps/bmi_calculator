@@ -88,7 +88,10 @@ class BmiScreenState extends State<BmiScreen> {
           ),
           const SizedBox(height: BIGGER_PADDING_SIZE),
           Padding(
-            padding: const EdgeInsets.all(DEFALT_PADDING_SIZE),
+            padding: const EdgeInsets.only(
+              left: BIGGER_PADDING_SIZE * 2,
+              right: BIGGER_PADDING_SIZE * 2,
+            ),
             child: BmiBar(bmi),
           ),
           const SizedBox(height: BIGGER_PADDING_SIZE),
