@@ -17,6 +17,7 @@ class MessageBoxState extends State<MessageBox> {
         borderRadius: BorderRadius.circular(5),
         border: Border.all(color: Colors.grey),
       ),
+      constraints: const BoxConstraints(maxWidth: MESSAGE_MAX_WIDTH),
       width: double.infinity,
       child: Padding(
         padding: const EdgeInsets.all(DEFALT_PADDING_SIZE),

@@ -18,7 +18,7 @@ class BmiScreen extends StatefulWidget {
 }
 
 class BmiScreenState extends State<BmiScreen> {
-  double bmi = 20.0;
+  double bmi = DEFAULT_BMI;
   double height = BMI_ERROR;
   double weight = BMI_ERROR;
   BmiCalculator bmiCalculator = BmiCalculator();
@@ -50,6 +50,7 @@ class BmiScreenState extends State<BmiScreen> {
       bmi = newBmi;
       bmiMessage = bmiCalculator.getBmiMessage(bmi);
     } on BmiException catch (e) {
+      bmi = DEFAULT_BMI;
       bmiMessage = INPUT_ERROR_MESSAGE;
       debugPrint("There was some kind of error! ${e.cause}");
     }

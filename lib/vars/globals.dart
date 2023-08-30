@@ -6,12 +6,14 @@ const int ANIMATION_DURATION_MILLIS = 200;
 
 const double DEFALT_PADDING_SIZE = 10;
 const double BIGGER_PADDING_SIZE = 20;
+const double MESSAGE_MAX_WIDTH = 600;
 
 const double ARROW_HEIGHT = 48;
 const double ARROW_WIDTH = 30;
 const double BAR_HEIGHT = 16;
 
 const double BMI_ERROR = -1;
+const double DEFAULT_BMI = 0.0;
 
 const String ANDROID_STORE_URL =
     "https://play.google.com/store/apps/dev?id=8230997084127446105";
