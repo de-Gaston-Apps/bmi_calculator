@@ -54,8 +54,8 @@ class WeightSelectorState extends State<WeightSelector> {
                 Column(
                   children: [
                     SizedBox(
-                      height: 50,
-                      width: 100,
+                      height: TEXT_INPUT_HEIGHT,
+                      width: TEXT_INPUT_WIDTH,
                       child: TextField(
                         controller: controller,
                         decoration: InputDecoration(
@@ -70,8 +70,8 @@ class WeightSelectorState extends State<WeightSelector> {
                       ),
                     ),
                     const SizedBox(
-                      height: 50,
-                      width: 100,
+                      height: TEXT_INPUT_HEIGHT,
+                      width: TEXT_INPUT_WIDTH,
                     ),
                   ],
                 ),

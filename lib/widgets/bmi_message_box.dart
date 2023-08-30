@@ -1,15 +1,15 @@
 import 'package:bmi_calculator/vars/globals.dart';
 import 'package:flutter/material.dart';
 
-class MessageBox extends StatefulWidget {
+class BmiMessageBox extends StatefulWidget {
   final String message;
-  const MessageBox(this.message, {super.key});
+  const BmiMessageBox(this.message, {super.key});
 
   @override
-  State<StatefulWidget> createState() => MessageBoxState();
+  State<StatefulWidget> createState() => BmiMessageBoxState();
 }
 
-class MessageBoxState extends State<MessageBox> {
+class BmiMessageBoxState extends State<BmiMessageBox> {
   @override
   Widget build(BuildContext context) {
     return Container(

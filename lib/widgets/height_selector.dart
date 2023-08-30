@@ -75,7 +75,8 @@ class HeightSelectorState extends State<HeightSelector> {
                 Column(
                   children: [
                     SizedBox(
-                      width: 100,
+                      height: TEXT_INPUT_HEIGHT,
+                      width: TEXT_INPUT_WIDTH,
                       child: TextField(
                         controller: controller1,
                         decoration: InputDecoration(
@@ -90,7 +91,8 @@ class HeightSelectorState extends State<HeightSelector> {
                       ),
                     ),
                     SizedBox(
-                      width: 100,
+                      height: TEXT_INPUT_HEIGHT,
+                      width: TEXT_INPUT_WIDTH,
                       child: TextField(
                         controller: controller2,
                         decoration: InputDecoration(

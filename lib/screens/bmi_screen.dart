@@ -3,7 +3,7 @@ import 'package:bmi_calculator/data/bmi_error.dart';
 import 'package:bmi_calculator/vars/globals.dart';
 import 'package:bmi_calculator/vars/strings.dart';
 import 'package:bmi_calculator/widgets/bmi_bar.dart';
-import 'package:bmi_calculator/widgets/message_box.dart';
+import 'package:bmi_calculator/widgets/bmi_message_box.dart';
 import 'package:bmi_calculator/widgets/weight_selector.dart';
 import 'package:flutter/material.dart';
 
@@ -95,17 +95,21 @@ class BmiScreenState extends State<BmiScreen> {
             child: BmiBar(bmi),
           ),
           const SizedBox(height: BIGGER_PADDING_SIZE),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              WeightSelector(weightCallback),
-              HeightSelector(heightCallback),
-            ],
+          Container(
+            constraints: const BoxConstraints(maxWidth: MESSAGE_MAX_WIDTH),
+            width: double.infinity,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                WeightSelector(weightCallback),
+                HeightSelector(heightCallback),
+              ],
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(BIGGER_PADDING_SIZE),
-            child: MessageBox(bmiMessage),
+            child: BmiMessageBox(bmiMessage),
           ),
         ],
       ),

@@ -13,6 +13,9 @@ const double ARROW_HEIGHT = 48;
 const double ARROW_WIDTH = 30;
 const double BAR_HEIGHT = 16;
 
+const double TEXT_INPUT_HEIGHT = 50;
+const double TEXT_INPUT_WIDTH = 100;
+
 const double BMI_ERROR = -1;
 const double DEFAULT_BMI = 0.0;
 
