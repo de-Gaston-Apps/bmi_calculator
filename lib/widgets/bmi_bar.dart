@@ -64,48 +64,5 @@ class BmiBarState extends State<BmiBar> {
         ],
       ),
     );
-
-    // return Container(
-    //   child: Stack(
-    //     alignment: Alignment.bottomCenter,
-    //     children: [
-    //       Image.asset(
-    //         "assets/images/bmi_bar.png",
-    //       ),
-    //       Align(
-    //         alignment: const Alignment(1.0, 0.0),
-    //         child: Image.asset("assets/images/arrow.png"),
-    //       ),
-    //     ],
-    //   ),
-    // );
-
-    // return SizedBox(
-    //   height: (ARROW_HEIGHT + BAR_HEIGHT),
-    //   width: double.infinity,
-    //   child: Stack(
-    //     alignment: Alignment.bottomCenter,
-    //     children: [
-    //       Padding(
-    //         padding: const EdgeInsets.fromLTRB(
-    //           ARROW_WIDTH / 2,
-    //           0,
-    //           ARROW_WIDTH / 2,
-    //           0,
-    //         ),
-    //         child: Image.asset(
-    //           "assets/images/bmi_bar.png",
-    //           width: double.infinity,
-    //           fit: BoxFit.fitWidth,
-    //         ),
-    //       ),
-    //       PositionedDirectional(
-    //         top: 4,
-    //         start: offset,
-    //         child: Image.asset("assets/images/arrow.png"),
-    //       ),
-    //     ],
-    //   ),
-    // );
   }
 }
