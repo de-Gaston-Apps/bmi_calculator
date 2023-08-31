@@ -1,6 +1,7 @@
 // ignore_for_file: non_constant_identifier_names, constant_identifier_names
 
 const String APP_NAME = "BMI Calculator";
+const String BMI_STRING = "BMI";
 
 const String WEIGHT_TEXT = "Weight";
 const String WEIGHT_LABEL_METRIC = "Kilograms";
@@ -19,8 +20,7 @@ const String HEIGHT2_METRIC_TEXT = "cm";
 const String HEIGHT2_IMPER_TEXT = "in";
 
 const String INPUT_ERROR_MESSAGE = "❌\nThere is an error in your input";
-const String DEFAULT_WEIGHT_MESSAGE =
-    "👆\nInput values above to calculate BMI.";
+const String DEFAULT_WEIGHT_MESSAGE = "👆\nInput values to calculate BMI.";
 
 const String VERY_UNDER_WEIGHT_MESSAGE = "🤣\nvery under weight";
 const String UNDER_WEIGHT_MESSAGE = "👍\nunder weight";

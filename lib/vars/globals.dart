@@ -3,18 +3,27 @@ import 'package:flutter/material.dart';
 
 const int SPLASH_SCREEN_TIMER = 1;
 const int ANIMATION_DURATION_MILLIS = 200;
+const double ZOOM_IN_SCALE = 1.2;
 
 const double DEFALT_PADDING_SIZE = 10;
 const double BIGGER_PADDING_SIZE = DEFALT_PADDING_SIZE * 2;
 const double BAR_PADDING_SIZE = DEFALT_PADDING_SIZE * 4;
 const double MESSAGE_MAX_WIDTH = 600;
 
+const double BAR_HEIGHT = 32;
 const double ARROW_HEIGHT = 48;
-const double ARROW_WIDTH = 30;
-const double BAR_HEIGHT = 16;
+const double ARROW_WIDTH = 24;
+const double ARROW_SIZE = 30;
+const double ARROW_LINE_WIDTH = 3;
 
 const double TEXT_INPUT_HEIGHT = 50;
 const double TEXT_INPUT_WIDTH = 100;
+
+const int RANGE_BMI_UNDER = 35;
+const int RANGE_BMI_NORM = 65;
+const int RANGE_BMI_OVER = 50;
+const int RANGE_BMI_OBESE1 = 50;
+const int RANGE_BMI_OBESE2 = 50;
 
 const double BMI_ERROR = -1;
 const double DEFAULT_BMI = 0.0;
@@ -31,6 +40,12 @@ const String CDC_BMI_ABOUT_URL =
 */
 final Color MINT_GREEN = Colors.green.shade300;
 final Color SOFT_GREY = Colors.grey.shade300;
+
+const Color UNDER_BMI_COLOR = Colors.lightBlue;
+const Color NORM_BMI_COLOR = Colors.lightGreen;
+const Color OVER_BMI_COLOR = Colors.yellow;
+const Color OBESE1_BMI_COLOR = Colors.orange;
+const Color OBESE2_BMI_COLOR = Colors.red;
 
 /// Light colors
 const Color TEXT_LIGHT = Colors.black;

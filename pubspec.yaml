@@ -14,6 +14,7 @@ dependencies:
   toggle_switch: ^2.1.0
   cupertino_icons: ^1.0.2
   url_launcher: ^6.1.11
+  google_fonts: ^4.0.4
 
 dev_dependencies:
   flutter_test:
@@ -22,6 +23,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  assets:
-    - assets/images/bmi_bar.png
-    - assets/images/arrow.png
+  # assets:
+    # - assets/images/bmi_bar.png
+    # - assets/images/arrow.png

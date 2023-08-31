@@ -4,6 +4,8 @@ import 'package:bmi_calculator/vars/globals.dart';
 import 'package:bmi_calculator/vars/strings.dart';
 import 'package:bmi_calculator/widgets/bmi_bar.dart';
 import 'package:bmi_calculator/widgets/bmi_message_box.dart';
+import 'package:bmi_calculator/widgets/bmi_number.dart';
+import 'package:bmi_calculator/widgets/bmi_title.dart';
 import 'package:bmi_calculator/widgets/weight_selector.dart';
 import 'package:flutter/material.dart';
 
@@ -71,21 +73,8 @@ class BmiScreenState extends State<BmiScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const SizedBox(height: 20),
-          Text(
-            "BMI",
-            style: TextStyle(
-              color: MINT_GREEN,
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Text(
-            "$bmi",
-            style: const TextStyle(
-              color: TEXT_LIGHT,
-              fontSize: 20,
-            ),
-          ),
+          BmiTitle(),
+          BmiNumber(bmi: bmi),
           const SizedBox(height: BIGGER_PADDING_SIZE),
           Padding(
             padding: const EdgeInsets.only(

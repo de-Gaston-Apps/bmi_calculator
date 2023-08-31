@@ -1,8 +1,10 @@
 // ignore_for_file: constant_identifier_names
 import 'package:bmi_calculator/vars/globals.dart';
+import 'package:bmi_calculator/widgets/bmi_arrow.dart';
+import 'package:bmi_calculator/widgets/color_bar.dart';
 import 'package:flutter/material.dart';
 
-const double MIN_BMI = 16.5;
+const double MIN_BMI = 15;
 const double MAX_BMI = 40;
 
 class BmiBar extends StatefulWidget {
@@ -20,8 +22,10 @@ class BmiBarState extends State<BmiBar> {
 
     double min = 0 - ARROW_WIDTH / 2; // 0 - (value) to make it negative
     double max = barWidth - ARROW_WIDTH / 2;
+    if (max > MESSAGE_MAX_WIDTH) {
+      max = MESSAGE_MAX_WIDTH - ARROW_WIDTH / 2;
+    }
 
-    //1 is the min bmi and 45 is the max bmi
     if (widget.bmi <= MIN_BMI) {
       return min;
     }
@@ -39,10 +43,10 @@ class BmiBarState extends State<BmiBar> {
     double offset = calculateOffset();
 
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        border: Border.all(color: Colors.grey),
-      ),
+      // decoration: BoxDecoration(
+      //   borderRadius: BorderRadius.circular(5),
+      //   border: Border.all(color: Colors.grey),
+      // ),
       constraints: const BoxConstraints(maxWidth: MESSAGE_MAX_WIDTH),
       width: double.infinity,
       child: Column(
@@ -51,18 +55,17 @@ class BmiBarState extends State<BmiBar> {
             clipBehavior: Clip.none,
             alignment: Alignment.bottomCenter,
             children: [
-              SizedBox(width: MediaQuery.of(context).size.width, height: 48),
+              // SizedBox(
+              //   width: MediaQuery.of(context).size.width,
+              //   height: ARROW_HEIGHT,
+              // ),
+              ColorBar(bmi: widget.bmi),
               PositionedDirectional(
-                top: 0,
+                top: (BAR_HEIGHT * ZOOM_IN_SCALE - ARROW_HEIGHT) / 2,
                 start: offset,
-                child: Image.asset("assets/images/arrow.png"),
+                child: BmiArrow(),
               ),
             ],
-          ),
-          Image.asset(
-            "assets/images/bmi_bar.png",
-            fit: BoxFit.fill,
-            width: double.infinity,
           ),
         ],
       ),

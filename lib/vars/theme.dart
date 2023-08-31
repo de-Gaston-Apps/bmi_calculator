@@ -9,21 +9,6 @@ class MyTheme {
     brightness: Brightness.light,
     primarySwatch: PRIMARY_SWATCH_LIGHT,
     scaffoldBackgroundColor: Colors.transparent,
-    textTheme: const TextTheme(
-      displaySmall: TextStyle(
-        color: TEXT_LIGHT,
-        fontSize: 15,
-      ),
-      displayMedium: TextStyle(
-        color: TEXT_LIGHT,
-        fontSize: 22,
-      ),
-      displayLarge: TextStyle(
-        color: TEXT_LIGHT,
-        fontSize: 40,
-        fontWeight: FontWeight.w500,
-      ),
-    ),
   );
 
   static BoxDecoration lightBackgroundBoxDecoration = const BoxDecoration(
@@ -43,21 +28,6 @@ class MyTheme {
     brightness: Brightness.dark,
     primarySwatch: PRIMARY_SWATCH_DARK,
     scaffoldBackgroundColor: Colors.transparent,
-    textTheme: const TextTheme(
-      displaySmall: TextStyle(
-        color: TEXT_DARK,
-        fontSize: 15,
-      ),
-      displayMedium: TextStyle(
-        color: TEXT_DARK,
-        fontSize: 22,
-      ),
-      displayLarge: TextStyle(
-        color: TEXT_DARK,
-        fontSize: 40,
-        fontWeight: FontWeight.w500,
-      ),
-    ),
   );
 
   static BoxDecoration darkBackgroundBoxDecoration = const BoxDecoration(
