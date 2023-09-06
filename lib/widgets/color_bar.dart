@@ -20,6 +20,7 @@ class ColorBar extends StatelessWidget {
     }
 
     flex = (flex * scale).toInt();
+    var border = scale == 1.0 ? null : Border.all(color: Colors.black);
 
     return Expanded(
       flex: flex,
@@ -27,6 +28,7 @@ class ColorBar extends StatelessWidget {
         height: BAR_HEIGHT * scale,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
+          border: border,
           color: color,
         ),
       ),
