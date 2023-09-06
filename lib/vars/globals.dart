@@ -16,6 +16,10 @@ const double ARROW_WIDTH = 24;
 const double ARROW_SIZE = 30;
 const double ARROW_LINE_WIDTH = 3;
 
+const double BOX_BORDER_WIDTH = 0.5;
+const double BOX_BLUR_RADIUS = 5;
+const double BOX_BORDER_RADIUS = 5;
+
 const double TEXT_INPUT_HEIGHT = 50;
 const double TEXT_INPUT_WIDTH = 100;
 

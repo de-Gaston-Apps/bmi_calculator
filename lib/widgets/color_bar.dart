@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 class ColorBar extends StatelessWidget {
   final double bmi;
   const ColorBar({super.key, required this.bmi});
+  final double DEFAULT_SCALE = 1.0;
 
   Widget buildBox(int flex, Color color) {
     BmiCategory category = BmiCalculator().getCategory(bmi);
-    double scale = 1.0;
+    double scale = DEFAULT_SCALE;
     if (category == BmiCategory.veryUnder && color == UNDER_BMI_COLOR ||
         category == BmiCategory.obese3 && color == OBESE2_BMI_COLOR ||
         category == BmiCategory.under && color == UNDER_BMI_COLOR ||
@@ -20,15 +21,21 @@ class ColorBar extends StatelessWidget {
     }
 
     flex = (flex * scale).toInt();
-    var border = scale == 1.0 ? null : Border.all(color: Colors.black);
+    // var border = scale == DEFAULT_SCALE ? null : Border.all(color: Colors.black);
+    var border = Border.all(color: Colors.black, width: BOX_BORDER_WIDTH);
+
+    var shadows = scale == DEFAULT_SCALE
+        ? null
+        : [const BoxShadow(blurRadius: BOX_BLUR_RADIUS, color: Colors.grey)];
 
     return Expanded(
       flex: flex,
       child: Container(
         height: BAR_HEIGHT * scale,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(BOX_BORDER_RADIUS),
           border: border,
+          boxShadow: shadows,
           color: color,
         ),
       ),
