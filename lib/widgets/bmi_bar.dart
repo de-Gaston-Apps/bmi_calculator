@@ -64,7 +64,7 @@ class BmiBarState extends State<BmiBar> {
               PositionedDirectional(
                 top: (BAR_HEIGHT * ZOOM_IN_SCALE - ARROW_HEIGHT) / 2,
                 start: offset,
-                child: BmiArrow(),
+                child: const BmiArrow(),
               ),
             ],
           ),

@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 class BmiArrow extends StatelessWidget {
+  const BmiArrow({super.key});
+
   @override
   Widget build(BuildContext context) {
+    // ignore: sized_box_for_whitespace
     return Container(
       // Align the top of the BmiArrow with the top of the ColoBar
       height: ARROW_HEIGHT,

@@ -6,10 +6,13 @@ import 'package:bmi_calculator/vars/strings.dart';
 const INCHES_PER_FOOT = 12;
 const CM_PER_METER = 100;
 
-// Underweight = <18.5
-// Normal weight = 18.5–24.9
-// Overweight = 25–29.9
-// Obesity = BMI of 30 or greater
+// Very underweight = < 16.5
+// Underweight = 16.5 - 18.5
+// Normal weight = 18.5 – 24.9
+// Overweight = 25 – 29.9
+// Obesity1 = 30 - 35
+// Obesity2 = 35 - 40
+// Obesity3 = BMI > 40
 enum BmiCategory { veryUnder, under, normal, over, obese1, obese2, obese3 }
 
 class BmiCalculator {
@@ -40,11 +43,7 @@ class BmiCalculator {
     return lb / 2.20462;
   }
 
-  // Underweight = <18.5
-  // Normal weight = 18.5–24.9
-  // Overweight = 25–29.9
-  // Obesity = BMI of 30 or greater
-  // TODO add different specs for over, under, and obese
+  // See comment above
   BmiCategory getCategory(double bmi) {
     if (bmi <= 16.5) {
       return BmiCategory.veryUnder;

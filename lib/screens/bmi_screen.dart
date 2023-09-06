@@ -73,7 +73,7 @@ class BmiScreenState extends State<BmiScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const SizedBox(height: 20),
-          BmiTitle(),
+          const BmiTitle(),
           BmiNumber(bmi: bmi),
           const SizedBox(height: BIGGER_PADDING_SIZE),
           Padding(
