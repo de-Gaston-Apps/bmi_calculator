@@ -67,7 +67,7 @@ class BmiCalculator {
     BmiCategory category = getCategory(bmi);
     if (category == BmiCategory.veryUnder) {
       return VERY_UNDER_WEIGHT_MESSAGE;
-    } else if (category == BmiCategory.normal) {
+    } else if (category == BmiCategory.under) {
       return NORMAL_WEIGHT_MESSAGE;
     } else if (category == BmiCategory.normal) {
       return NORMAL_WEIGHT_MESSAGE;

@@ -4,9 +4,6 @@ import 'package:bmi_calculator/widgets/bmi_arrow.dart';
 import 'package:bmi_calculator/widgets/color_bar.dart';
 import 'package:flutter/material.dart';
 
-const double MIN_BMI = 15;
-const double MAX_BMI = 40;
-
 class BmiBar extends StatefulWidget {
   final double bmi;
   const BmiBar(this.bmi, {super.key});
@@ -19,6 +16,9 @@ class BmiBarState extends State<BmiBar> {
   double calculateOffset() {
     double width = MediaQuery.of(context).size.width;
     double barWidth = width - BAR_PADDING_SIZE * 2;
+    if (barWidth > MESSAGE_MAX_WIDTH) {
+      barWidth = MESSAGE_MAX_WIDTH;
+    }
 
     double min = 0 - ARROW_WIDTH / 2; // 0 - (value) to make it negative
     double max = barWidth - ARROW_WIDTH / 2;
@@ -26,15 +26,16 @@ class BmiBarState extends State<BmiBar> {
       max = MESSAGE_MAX_WIDTH - ARROW_WIDTH / 2;
     }
 
-    if (widget.bmi <= MIN_BMI) {
+    if (widget.bmi <= BAR_MIN_BMI) {
       return min;
     }
-    if (widget.bmi >= MAX_BMI) {
+    if (widget.bmi >= BAR_MAX_BMI) {
       return max;
     }
 
-    double offset = (barWidth / (MAX_BMI - MIN_BMI)) * (widget.bmi - MIN_BMI) -
-        ARROW_WIDTH / 2;
+    double offset =
+        (barWidth / (BAR_MAX_BMI - BAR_MIN_BMI)) * (widget.bmi - BAR_MIN_BMI) -
+            ARROW_WIDTH / 2;
     return offset;
   }
 

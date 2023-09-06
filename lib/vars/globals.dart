@@ -23,11 +23,14 @@ const double BOX_BORDER_RADIUS = 5;
 const double TEXT_INPUT_HEIGHT = 50;
 const double TEXT_INPUT_WIDTH = 100;
 
-const int RANGE_BMI_UNDER = 35;
+const int RANGE_BMI_UNDER = 20;
 const int RANGE_BMI_NORM = 65;
 const int RANGE_BMI_OVER = 50;
 const int RANGE_BMI_OBESE1 = 50;
 const int RANGE_BMI_OBESE2 = 50;
+
+const double BAR_MIN_BMI = 16.5;
+const double BAR_MAX_BMI = 40;
 
 const double BMI_ERROR = -1;
 const double DEFAULT_BMI = 0.0;

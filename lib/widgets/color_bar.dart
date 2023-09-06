@@ -20,7 +20,9 @@ class ColorBar extends StatelessWidget {
       scale = ZOOM_IN_SCALE;
     }
 
-    flex = (flex * scale).toInt();
+    // The flex variable will change the width
+    // I don't want the width to change as the bar moves though. Just height.
+    // flex = (flex * scale).toInt();
     // var border = scale == DEFAULT_SCALE ? null : Border.all(color: Colors.black);
     var border = Border.all(color: Colors.black, width: BOX_BORDER_WIDTH);
 
