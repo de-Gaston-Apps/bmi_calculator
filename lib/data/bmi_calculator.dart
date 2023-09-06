@@ -62,22 +62,62 @@ class BmiCalculator {
     }
   }
 
-  String getBmiMessage(double bmi) {
+  String getBmiMessageHeader(double bmi) {
     BmiCategory category = getCategory(bmi);
     if (category == BmiCategory.veryUnder) {
-      return VERY_UNDER_WEIGHT_MESSAGE;
+      return VERY_UNDER_MESSAGE_HEADER;
     } else if (category == BmiCategory.under) {
-      return NORMAL_WEIGHT_MESSAGE;
+      return UNDER_WEIGHT_MESSAGE_HEADER;
     } else if (category == BmiCategory.normal) {
-      return NORMAL_WEIGHT_MESSAGE;
+      return NORMAL_WEIGHT_MESSAGE_HEADER;
     } else if (category == BmiCategory.over) {
-      return OVER_WEIGHT_MESSAGE;
+      return OVER_WEIGHT_MESSAGE_HEADER;
     } else if (category == BmiCategory.obese1) {
-      return OBESE1_WEIGHT_MESSAGE;
+      return OBESE1_WEIGHT_MESSAGE_HEADER;
     } else if (category == BmiCategory.obese2) {
-      return OBESE2_WEIGHT_MESSAGE;
+      return OBESE2_WEIGHT_MESSAGE_HEADER;
     } else if (category == BmiCategory.obese3) {
-      return OBESE3_WEIGHT_MESSAGE;
+      return OBESE3_WEIGHT_MESSAGE_HEADER;
+    }
+    return DEFAULT_WEIGHT_MESSAGE;
+  }
+
+  String getBmiMessageSubtitle(double bmi) {
+    BmiCategory category = getCategory(bmi);
+    if (category == BmiCategory.veryUnder) {
+      return VERY_UNDER_MESSAGE_SUBTITLE;
+    } else if (category == BmiCategory.under) {
+      return UNDER_WEIGHT_MESSAGE_SUBTITLE;
+    } else if (category == BmiCategory.normal) {
+      return NORMAL_WEIGHT_MESSAGE_SUBTITLE;
+    } else if (category == BmiCategory.over) {
+      return OVER_WEIGHT_MESSAGE_SUBTITLE;
+    } else if (category == BmiCategory.obese1) {
+      return OBESE1_WEIGHT_MESSAGE_SUBTITLE;
+    } else if (category == BmiCategory.obese2) {
+      return OBESE2_WEIGHT_MESSAGE_SUBTITLE;
+    } else if (category == BmiCategory.obese3) {
+      return OBESE3_WEIGHT_MESSAGE_SUBTITLE;
+    }
+    return DEFAULT_WEIGHT_MESSAGE;
+  }
+
+  String getBmiMessageText(double bmi) {
+    BmiCategory category = getCategory(bmi);
+    if (category == BmiCategory.veryUnder) {
+      return VERY_UNDER_MESSAGE_TEXT;
+    } else if (category == BmiCategory.under) {
+      return UNDER_WEIGHT_MESSAGE_TEXT;
+    } else if (category == BmiCategory.normal) {
+      return NORMAL_WEIGHT_MESSAGE_TEXT;
+    } else if (category == BmiCategory.over) {
+      return OVER_WEIGHT_MESSAGE_TEXT;
+    } else if (category == BmiCategory.obese1) {
+      return OBESE1_WEIGHT_MESSAGE_TEXT;
+    } else if (category == BmiCategory.obese2) {
+      return OBESE2_WEIGHT_MESSAGE_TEXT;
+    } else if (category == BmiCategory.obese3) {
+      return OBESE3_WEIGHT_MESSAGE_TEXT;
     }
     return DEFAULT_WEIGHT_MESSAGE;
   }
