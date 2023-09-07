@@ -20,11 +20,11 @@ class BmiScreen extends StatefulWidget {
 }
 
 class BmiScreenState extends State<BmiScreen> {
+  bool isWeightMetric = false;
   double bmi = DEFAULT_BMI;
   double height = BMI_ERROR;
   double weight = BMI_ERROR;
   BmiCalculator bmiCalculator = BmiCalculator();
-  String bmiMessage = DEFAULT_WEIGHT_MESSAGE;
 
   void heightCallback(double h, bool isMetric) {
     if (!isMetric) {
@@ -36,6 +36,7 @@ class BmiScreenState extends State<BmiScreen> {
   }
 
   void weightCallback(double w, bool isMetric) {
+    isWeightMetric = isMetric;
     if (!isMetric) {
       weight = bmiCalculator.lbToKg(w);
     } else {
@@ -50,10 +51,8 @@ class BmiScreenState extends State<BmiScreen> {
       newBmi = bmiCalculator.getBmi(weight, height);
       newBmi = makeBmiPretty(newBmi);
       bmi = newBmi;
-      bmiMessage = bmiCalculator.getBmiMessage(bmi);
     } on BmiException catch (e) {
       bmi = DEFAULT_BMI;
-      bmiMessage = INPUT_ERROR_MESSAGE;
       debugPrint("There was some kind of error! ${e.cause}");
     }
     // Update the widgets
@@ -98,7 +97,7 @@ class BmiScreenState extends State<BmiScreen> {
           ),
           Padding(
             padding: const EdgeInsets.all(BIGGER_PADDING_SIZE),
-            child: BmiMessageBox(bmiMessage),
+            child: BmiMessageBox(bmi, height, isWeightMetric),
           ),
         ],
       ),

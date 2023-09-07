@@ -63,6 +63,7 @@ class BmiCalculator {
   }
 
   String getBmiMessageHeader(double bmi) {
+    if (bmi == DEFAULT_BMI) return DEFAULT_WEIGHT_MESSAGE_HEADER;
     BmiCategory category = getCategory(bmi);
     if (category == BmiCategory.veryUnder) {
       return VERY_UNDER_MESSAGE_HEADER;
@@ -79,10 +80,11 @@ class BmiCalculator {
     } else if (category == BmiCategory.obese3) {
       return OBESE3_WEIGHT_MESSAGE_HEADER;
     }
-    return DEFAULT_WEIGHT_MESSAGE;
+    return DEFAULT_WEIGHT_MESSAGE_HEADER;
   }
 
   String getBmiMessageSubtitle(double bmi) {
+    if (bmi == DEFAULT_BMI) return DEFAULT_WEIGHT_MESSAGE_SUBTITLE;
     BmiCategory category = getCategory(bmi);
     if (category == BmiCategory.veryUnder) {
       return VERY_UNDER_MESSAGE_SUBTITLE;
@@ -99,10 +101,11 @@ class BmiCalculator {
     } else if (category == BmiCategory.obese3) {
       return OBESE3_WEIGHT_MESSAGE_SUBTITLE;
     }
-    return DEFAULT_WEIGHT_MESSAGE;
+    return DEFAULT_WEIGHT_MESSAGE_SUBTITLE;
   }
 
   String getBmiMessageText(double bmi) {
+    if (bmi == DEFAULT_BMI) return DEFAULT_WEIGHT_MESSAGE_TEXT;
     BmiCategory category = getCategory(bmi);
     if (category == BmiCategory.veryUnder) {
       return VERY_UNDER_MESSAGE_TEXT;
@@ -119,6 +122,28 @@ class BmiCalculator {
     } else if (category == BmiCategory.obese3) {
       return OBESE3_WEIGHT_MESSAGE_TEXT;
     }
-    return DEFAULT_WEIGHT_MESSAGE;
+    return DEFAULT_WEIGHT_MESSAGE_TEXT;
+  }
+
+  String getIdealWeight(double heightM, bool isWeightMetric) {
+    // BMI = weight (kg)  / height^2 (meters)
+    // So, I just need to reverse engineer the BMI into the ideal weight for normal range
+    // Normal range is 18.5 - 24.9
+    // fudge a little to make it always true
+    const double BMI_NORM_LOW = 18.6;
+    const double BMI_NORM_HIGH = 24.8;
+
+    double low = BMI_NORM_LOW * heightM * heightM;
+    double high = BMI_NORM_HIGH * heightM * heightM;
+    String unit = WEIGHT_METRIC_TEXT;
+
+    if (!isWeightMetric) {
+      low = kgToLb(low);
+      high = kgToLb(high);
+      unit = WEIGHT_IMPER_TEXT;
+    }
+    low = low.roundToDouble();
+    high = high.roundToDouble();
+    return "Ideal weight range is $low$unit - $high$unit";
   }
 }
