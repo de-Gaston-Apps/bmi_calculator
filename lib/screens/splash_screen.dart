@@ -1,4 +1,6 @@
+import 'package:bmi_calculator/vars/strings.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../vars/globals.dart';
 import '../widgets/scaffold_container.dart';
@@ -15,7 +17,7 @@ class SplashScreenState extends State<SplashScreen> {
   // I'm thinking that for this splash screen, we should have a
   // throbbing mint green color in the background that slowly makes it's way
   // around the screen.
-
+  bool zoomIn = true;
   void switchScreenOnWait() {
     Future.delayed(const Duration(seconds: SPLASH_SCREEN_TIMER)).then(
       (value) => {
@@ -29,8 +31,14 @@ class SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
-    switchScreenOnWait();
     super.initState();
+    switchScreenOnWait();
+    // make the zoom in/out happen
+    Future.delayed(const Duration(milliseconds: 100), () {
+      setState(() {
+        zoomIn = !zoomIn;
+      });
+    });
   }
 
   @override
@@ -40,12 +48,27 @@ class SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "Splash Screen",
-            style: TextStyle(
+            WELCOME_MESSAGE,
+            style: GoogleFonts.robotoCondensed(
               color: MINT_GREEN,
-              fontSize: 30,
+              fontSize: 50,
               fontWeight: FontWeight.bold,
             ),
+          ),
+          const SizedBox(height: BIGGER_PADDING_SIZE),
+          AnimatedScale(
+            scale: zoomIn ? 1.1 : 1,
+            duration: Duration(milliseconds: zoomIn ? 1000 : 300),
+            child: Image.asset(
+              "assets/images/icon.png",
+              height: 130,
+              width: 130,
+            ),
+            onEnd: () {
+              setState(() {
+                zoomIn = !zoomIn;
+              });
+            },
           ),
         ],
       ),

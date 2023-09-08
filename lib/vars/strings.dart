@@ -3,6 +3,8 @@
 const String APP_NAME = "BMI Calculator";
 const String BMI_STRING = "BMI";
 
+const String WELCOME_MESSAGE = "Welcome";
+
 const String WEIGHT_TEXT = "Weight";
 const String WEIGHT_LABEL_METRIC = "Kilograms";
 const String WEIGHT_LABEL_IMPER = "Pounds";
