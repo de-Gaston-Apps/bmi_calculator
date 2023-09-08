@@ -125,13 +125,17 @@ class BmiCalculator {
     return DEFAULT_WEIGHT_MESSAGE_TEXT;
   }
 
+  double _roundOneDecimal(double d) {
+    return (d * 10).round() / 10;
+  }
+
   String getIdealWeight(double heightM, bool isWeightMetric) {
     // BMI = weight (kg)  / height^2 (meters)
     // So, I just need to reverse engineer the BMI into the ideal weight for normal range
     // Normal range is 18.5 - 24.9
     // fudge a little to make it always true
-    const double BMI_NORM_LOW = 18.6;
-    const double BMI_NORM_HIGH = 24.8;
+    const double BMI_NORM_LOW = 18.5;
+    const double BMI_NORM_HIGH = 24.9;
 
     double low = BMI_NORM_LOW * heightM * heightM;
     double high = BMI_NORM_HIGH * heightM * heightM;
@@ -142,8 +146,8 @@ class BmiCalculator {
       high = kgToLb(high);
       unit = WEIGHT_IMPER_TEXT;
     }
-    low = low.roundToDouble();
-    high = high.roundToDouble();
-    return "Ideal weight range is $low$unit - $high$unit";
+    low = _roundOneDecimal(low);
+    high = _roundOneDecimal(high);
+    return "$IDEAL_WEIGHT_MESSAGE $low$unit - $high$unit";
   }
 }

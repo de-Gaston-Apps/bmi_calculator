@@ -21,6 +21,8 @@ const String HEIGHT2_IMPER_TEXT = "in";
 
 /// ------------------- Message box ------------------- ///
 
+const String IDEAL_WEIGHT_MESSAGE = "Ideal weight:";
+
 const String INPUT_ERROR_MESSAGE_HEADER = "Oops!";
 const String INPUT_ERROR_MESSAGE_SUBTITLE = "❌";
 const String INPUT_ERROR_MESSAGE_TEXT = "There is an error in your input";

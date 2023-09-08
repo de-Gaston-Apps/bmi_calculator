@@ -7,7 +7,7 @@ const double ZOOM_IN_SCALE = 1.2;
 
 const double DEFALT_PADDING_SIZE = 10;
 const double BIGGER_PADDING_SIZE = DEFALT_PADDING_SIZE * 2;
-const double BAR_PADDING_SIZE = DEFALT_PADDING_SIZE * 4;
+const double BAR_PADDING_SIZE = DEFALT_PADDING_SIZE * 2;
 const double MESSAGE_MAX_WIDTH = 600;
 
 const double BAR_HEIGHT = 32;
