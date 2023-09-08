@@ -1,7 +1,6 @@
 import 'package:bmi_calculator/data/bmi_calculator.dart';
 import 'package:bmi_calculator/data/bmi_error.dart';
 import 'package:bmi_calculator/vars/globals.dart';
-import 'package:bmi_calculator/vars/strings.dart';
 import 'package:bmi_calculator/widgets/bmi_bar.dart';
 import 'package:bmi_calculator/widgets/bmi_message_box.dart';
 import 'package:bmi_calculator/widgets/bmi_number.dart';
