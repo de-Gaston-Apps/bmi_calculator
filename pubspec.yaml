@@ -17,6 +17,7 @@ dependencies:
   google_fonts: ^4.0.4
 
 dev_dependencies:
+  flutter_launcher_icons: "^0.13.1"
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
@@ -26,3 +27,10 @@ flutter:
   assets:
     - assets/images/icon.png
     # - assets/images/arrow.png
+
+# https://pub.dev/packages/flutter_launcher_icons
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
