@@ -59,10 +59,15 @@ class SplashScreenState extends State<SplashScreen> {
           AnimatedScale(
             scale: zoomIn ? 1.1 : 1,
             duration: Duration(milliseconds: zoomIn ? 1000 : 300),
-            child: Image.asset(
-              "assets/images/icon.png",
-              height: 130,
-              width: 130,
+            child: Container(
+              clipBehavior: Clip.hardEdge,
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(15)),
+              child: Image.asset(
+                "assets/images/icon.png",
+                height: 130,
+                width: 130,
+              ),
             ),
             onEnd: () {
               setState(() {
