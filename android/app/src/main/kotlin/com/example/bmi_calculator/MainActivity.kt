@@ -1,4 +1,4 @@
-package com.example.bmi_calculator
+package com.simpletoolsandtuners.bmi
 
 import io.flutter.embedding.android.FlutterActivity
 
