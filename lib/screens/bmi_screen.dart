@@ -7,9 +7,8 @@ import 'package:bmi_calculator/widgets/bmi_number.dart';
 import 'package:bmi_calculator/widgets/bmi_title.dart';
 import 'package:bmi_calculator/widgets/weight_selector.dart';
 import 'package:flutter/material.dart';
-
-import '../widgets/height_selector.dart';
-import '../widgets/scaffold_container.dart';
+import 'package:bmi_calculator/widgets/height_selector.dart';
+import 'package:bmi_calculator/widgets/scaffold_container.dart';
 
 class BmiScreen extends StatefulWidget {
   const BmiScreen({super.key});
@@ -70,7 +69,6 @@ class BmiScreenState extends State<BmiScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const SizedBox(height: 20),
           const BmiTitle(),
           BmiNumber(bmi: bmi),
           const SizedBox(height: BIGGER_PADDING_SIZE),
