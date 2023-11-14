@@ -1,12 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../vars/globals.dart';
-import '../vars/strings.dart';
-import '../widgets/scaffold_container.dart';
-import 'bmi_screen.dart';
 
 List<LinearGradient> GRADIENTS = [
   // Start like this
