@@ -1,5 +1,6 @@
 import 'package:bmi_calculator/data/bmi_calculator.dart';
 import 'package:bmi_calculator/vars/globals.dart';
+import 'package:bmi_calculator/vars/colors.dart';
 import 'package:flutter/material.dart';
 
 class ColorBar extends StatelessWidget {

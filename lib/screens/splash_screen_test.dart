@@ -1,6 +1,5 @@
+import 'package:bmi_calculator/vars/colors.dart';
 import 'package:flutter/material.dart';
-
-import '../vars/globals.dart';
 
 List<LinearGradient> GRADIENTS = [
   // Start like this

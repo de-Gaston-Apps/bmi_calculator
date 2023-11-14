@@ -6,6 +6,7 @@ import 'package:toggle_switch/toggle_switch.dart';
 
 import 'package:bmi_calculator/vars/globals.dart';
 import 'package:bmi_calculator/vars/strings.dart';
+import 'package:bmi_calculator/vars/colors.dart';
 
 class HeightSelector extends StatefulWidget {
   final Function(double, bool) callback;

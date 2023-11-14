@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../vars/globals.dart';
+import 'package:bmi_calculator/vars/colors.dart';
 
 class MyTheme {
 /*

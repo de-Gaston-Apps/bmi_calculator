@@ -2,6 +2,7 @@ import 'package:bmi_calculator/vars/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'package:bmi_calculator/vars/colors.dart';
 import '../vars/globals.dart';
 import '../widgets/scaffold_container.dart';
 import 'bmi_screen.dart';
