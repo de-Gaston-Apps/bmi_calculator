@@ -1,0 +1,19 @@
+<en-US>
+We have another update for you to make this app even better!
+
+- Better UI: Experience a sleek and modern design for an enhanced user interface.
+- Improved Compatibility: We've optimized the app to work better with certain phones, ensuring a smoother experience.
+- Bug Fixes.
+
+Thank you for choosing our app to accompany you on your health journey!
+</en-US>
+
+<pt-BR>
+Temos mais uma atualização para tornar este aplicativo ainda melhor!
+
+- Melhor UI: Experimente um design moderno e elegante para uma interface de usuário aprimorada.
+- Compatibilidade Aprimorada: Otimizamos o aplicativo para funcionar melhor com determinados telefones, garantindo uma experiência mais fluida.
+- Correções de Bugs.
+
+Obrigado por escolher nosso aplicativo para acompanhá-lo em sua jornada de saúde!
+</pt-BR>
