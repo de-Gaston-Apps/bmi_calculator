@@ -1,6 +1,8 @@
+import 'package:bmi_calculator/handlers/my_rating.dart';
 import 'package:bmi_calculator/vars/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:in_app_review/in_app_review.dart';
 
 import 'package:bmi_calculator/vars/colors.dart';
 import '../vars/globals.dart';
@@ -39,6 +41,17 @@ class SplashScreenState extends State<SplashScreen> {
       setState(() {
         zoomIn = !zoomIn;
       });
+    });
+
+    // Show a Rating popup!
+    MyRating rating = MyRating();
+    rating.shouldShowPopup().then((value) {
+      if (value) {
+        debugPrint("Showing the popup rating");
+        rating.showPopup();
+      } else {
+        debugPrint("Not showing popup rating");
+      }
     });
   }
 

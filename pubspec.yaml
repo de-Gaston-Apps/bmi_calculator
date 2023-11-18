@@ -15,6 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   url_launcher: ^6.1.11
   google_fonts: ^4.0.4
+  in_app_review: ^2.0.8
 
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"
