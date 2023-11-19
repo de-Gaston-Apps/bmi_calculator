@@ -33,7 +33,7 @@ class MyRating {
 
   void showPopup() {
     _inAppReview.requestReview().then((value) {
-      debugPrint("The review is done");
+      debugPrint("The review popup is done launching");
     });
   }
 }
