@@ -33,3 +33,5 @@ Embark on a journey towards a healthier lifestyle:
 -Understand your body better with accurate BMI calculations.
 Track your progress effortlessly to make informed health decisions.
 Take control of your fitness journey with a tool designed for everyone.
+
+Disclaimer: This app is simply a calculator. Users should seek a doctor’s advice in addition to using this app and before making any medical decisions.
