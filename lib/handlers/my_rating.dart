@@ -23,7 +23,7 @@ class MyRating {
     prefs.setValue(PREF_KEY_PREFIX + PREF_SESSIONS, sessions + 1);
 
     // Return false if there haven't been enough sessions yet
-    if (sessions < RATING_MIN_SESSIONS) {
+    if ((sessions % RATING_MIN_SESSIONS) != 0) {
       debugPrint("Not enough sessions yet");
       return false;
     }
