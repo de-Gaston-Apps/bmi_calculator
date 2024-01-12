@@ -55,6 +55,7 @@ class MyScaffoldContainerBackgroundState
     return Scaffold(
       appBar: bar,
       body: body,
+      resizeToAvoidBottomInset: false,
     );
   }
 }

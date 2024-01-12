@@ -66,37 +66,48 @@ class BmiScreenState extends State<BmiScreen> {
   Widget build(BuildContext context) {
     return MyScaffoldContainerBackground(
       showAppBar: true,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          const BmiTitle(),
-          BmiNumber(bmi: bmi),
-          const SizedBox(height: BIGGER_PADDING_SIZE),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: BAR_PADDING_SIZE,
-              right: BAR_PADDING_SIZE,
+      child: GestureDetector(
+        //  THIS IS HOW YOU UNFOCUS THE KEYBOARD
+        onTap: () {
+          {
+            FocusScopeNode currentFocus = FocusScope.of(context);
+            if (!currentFocus.hasPrimaryFocus) {
+              currentFocus.unfocus();
+            }
+          }
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const BmiTitle(),
+            BmiNumber(bmi: bmi),
+            const SizedBox(height: BIGGER_PADDING_SIZE),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: BAR_PADDING_SIZE,
+                right: BAR_PADDING_SIZE,
+              ),
+              child: BmiBar(bmi),
             ),
-            child: BmiBar(bmi),
-          ),
-          const SizedBox(height: BIGGER_PADDING_SIZE),
-          Container(
-            constraints: const BoxConstraints(maxWidth: MESSAGE_MAX_WIDTH),
-            width: double.infinity,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                WeightSelector(weightCallback),
-                HeightSelector(heightCallback),
-              ],
+            const SizedBox(height: BIGGER_PADDING_SIZE),
+            Container(
+              constraints: const BoxConstraints(maxWidth: MESSAGE_MAX_WIDTH),
+              width: double.infinity,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  WeightSelector(weightCallback),
+                  HeightSelector(heightCallback),
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(BIGGER_PADDING_SIZE),
-            child: BmiMessageBox(bmi, height, isWeightMetric),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.all(BIGGER_PADDING_SIZE),
+              child: BmiMessageBox(bmi, height, isWeightMetric),
+            ),
+          ],
+        ),
       ),
     );
   }
