@@ -1,13 +1,12 @@
-App name:
-BMI Calculator - Simple
+#
+BMI Calculator - Easy
+
+##
+Free BMI Calculator! Calculate BMI by height and weight. Track your weight loss.
 
 
-Short description:
-Easily monitor your health with our BMI Calculator.
-
-
-Full description:
-Seamless body mass index calculator!
+###
+Complete body mass index calculator for any age and height!
 
 Download "BMI Calculator - Simple" now and take the first step towards a healthier and happier you. Your wellness journey starts here!
 
@@ -34,4 +33,3 @@ Embark on a journey towards a healthier lifestyle:
 Track your progress effortlessly to make informed health decisions.
 Take control of your fitness journey with a tool designed for everyone.
 
-Disclaimer: This app is simply a calculator. Users should seek a doctor’s advice in addition to using this app and before making any medical decisions.
