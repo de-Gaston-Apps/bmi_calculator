@@ -88,6 +88,7 @@ class SplashScreenState extends State<SplashScreen> {
               });
             },
           ),
+          const SizedBox(height: BIGGER_PADDING_SIZE * 8),
         ],
       ),
     );
