@@ -1,9 +1,6 @@
 import 'package:bmi_calculator/handlers/my_rating.dart';
 import 'package:bmi_calculator/vars/strings.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import 'package:bmi_calculator/vars/colors.dart';
 import '../vars/globals.dart';
 import '../widgets/scaffold_container.dart';
 import 'bmi_screen.dart';
@@ -62,13 +59,11 @@ class SplashScreenState extends State<SplashScreen> {
         children: [
           Text(
             WELCOME_MESSAGE,
-            style: GoogleFonts.robotoCondensed(
-              color: MINT_GREEN,
-              fontSize: 50,
-              fontWeight: FontWeight.bold,
-            ),
+            style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                  fontStyle: FontStyle.italic,
+                ),
           ),
-          const SizedBox(height: BIGGER_PADDING_SIZE),
+          const SizedBox(height: BIGGER_PADDING_SIZE * 3),
           AnimatedScale(
             scale: zoomIn ? 1.1 : 1,
             duration: Duration(milliseconds: zoomIn ? 1000 : 300),
@@ -88,7 +83,7 @@ class SplashScreenState extends State<SplashScreen> {
               });
             },
           ),
-          const SizedBox(height: BIGGER_PADDING_SIZE * 8),
+          const SizedBox(height: BIGGER_PADDING_SIZE * 10),
         ],
       ),
     );

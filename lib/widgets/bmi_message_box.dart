@@ -1,7 +1,6 @@
 import 'package:bmi_calculator/data/bmi_calculator.dart';
 import 'package:bmi_calculator/vars/globals.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class BmiMessageBox extends StatefulWidget {
   final double bmi;
@@ -43,10 +42,7 @@ class BmiMessageBoxState extends State<BmiMessageBox> {
               header,
               textAlign: TextAlign.center,
               softWrap: true,
-              style: GoogleFonts.robotoCondensed(
-                color: const Color.fromARGB(255, 48, 47, 47),
-                textStyle: Theme.of(context).textTheme.headlineMedium,
-              ),
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
           ),
 
@@ -70,27 +66,19 @@ class BmiMessageBoxState extends State<BmiMessageBox> {
               left: DEFALT_PADDING_SIZE,
               right: DEFALT_PADDING_SIZE,
             ),
-            child: Text(
-              idealWeight,
-              textAlign: TextAlign.center,
-              softWrap: true,
-              style: GoogleFonts.roboto(
-                color: Colors.black87,
-                textStyle: Theme.of(context).textTheme.bodyMedium,
-              ),
-            ),
+            child: Text(idealWeight,
+                textAlign: TextAlign.center,
+                softWrap: true,
+                style: Theme.of(context).textTheme.titleMedium),
           ),
 
           // ----------------- Main text ----------------- //
           Padding(
             padding: const EdgeInsets.all(DEFALT_PADDING_SIZE),
             child: Text(
-              "        $text",
+              text,
               softWrap: true,
-              style: GoogleFonts.roboto(
-                color: Colors.black54,
-                textStyle: Theme.of(context).textTheme.bodyMedium,
-              ),
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
         ],

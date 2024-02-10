@@ -1,7 +1,6 @@
 import 'package:bmi_calculator/screens/info_screen.dart';
 import 'package:bmi_calculator/vars/strings.dart';
 import 'package:flutter/material.dart';
-import '../vars/theme.dart';
 
 class MyScaffoldContainerBackground extends StatefulWidget {
   final Widget? child;
@@ -46,9 +45,9 @@ class MyScaffoldContainerBackgroundState
     Widget? body = Container(
       // Create the normal container
       alignment: Alignment.center,
-      decoration: Theme.of(context).brightness == Brightness.dark
-          ? MyTheme.darkBackgroundBoxDecoration
-          : MyTheme.lightBackgroundBoxDecoration,
+      // decoration: Theme.of(context).brightness == Brightness.dark
+      //     ? MyTheme.darkBackgroundBoxDecoration
+      //     : MyTheme.lightBackgroundBoxDecoration,
       child: widget.child,
     );
 
