@@ -69,7 +69,10 @@ class HeightSelectorState extends State<HeightSelector> {
         padding: const EdgeInsets.all(DEFALT_PADDING_SIZE),
         child: Column(
           children: [
-            const Text(HEIGHT_TEXT), // Subtitle for the box
+            Text(
+              HEIGHT_TEXT,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -117,7 +120,7 @@ class HeightSelectorState extends State<HeightSelector> {
                     isVertical: true,
                     radiusStyle: true,
                     initialLabelIndex: toggleIndex,
-                    inactiveBgColor: SOFT_GREY,
+                    inactiveBgColor: Theme.of(context).splashColor,
                     activeBgColors: [
                       [MINT_GREEN],
                       [MINT_GREEN],

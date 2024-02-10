@@ -48,7 +48,10 @@ class WeightSelectorState extends State<WeightSelector> {
         padding: const EdgeInsets.all(DEFALT_PADDING_SIZE),
         child: Column(
           children: [
-            const Text(WEIGHT_TEXT), // Subtitle for the box
+            Text(
+              WEIGHT_TEXT,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -84,7 +87,7 @@ class WeightSelectorState extends State<WeightSelector> {
                     isVertical: true,
                     radiusStyle: true,
                     initialLabelIndex: toggleIndex,
-                    inactiveBgColor: SOFT_GREY,
+                    inactiveBgColor: Theme.of(context).splashColor,
                     activeBgColors: [
                       [MINT_GREEN],
                       [MINT_GREEN],
