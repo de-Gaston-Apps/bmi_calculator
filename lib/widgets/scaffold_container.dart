@@ -1,5 +1,4 @@
 import 'package:bmi_calculator/screens/info_screen.dart';
-import 'package:bmi_calculator/vars/strings.dart';
 import 'package:flutter/material.dart';
 
 class MyScaffoldContainerBackground extends StatefulWidget {
@@ -27,10 +26,13 @@ class MyScaffoldContainerBackgroundState
     AppBar? bar;
     if (widget.showAppBar) {
       bar = AppBar(
-        title: const Text(APP_NAME),
+        // title: const Text(APP_NAME),
         actions: [
           IconButton(
-            icon: const Icon(Icons.info_outline_rounded),
+            icon: const Icon(
+              Icons.info_outline_rounded,
+              size: 36,
+            ),
             onPressed: () {
               Navigator.push(
                 context,
@@ -45,9 +47,6 @@ class MyScaffoldContainerBackgroundState
     Widget? body = Container(
       // Create the normal container
       alignment: Alignment.center,
-      // decoration: Theme.of(context).brightness == Brightness.dark
-      //     ? MyTheme.darkBackgroundBoxDecoration
-      //     : MyTheme.lightBackgroundBoxDecoration,
       child: widget.child,
     );
 

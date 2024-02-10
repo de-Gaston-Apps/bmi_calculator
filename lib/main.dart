@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: APP_NAME,
-      // theme: MyTheme.themeDataLight,
       theme: ThemeData(
         useMaterial3: true,
         brightness: Brightness.light,
@@ -35,7 +34,6 @@ class MyApp extends StatelessWidget {
         colorSchemeSeed: const Color.fromRGBO(86, 80, 14, 171),
         textTheme: GoogleFonts.robotoTextTheme(),
       ),
-
       home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
