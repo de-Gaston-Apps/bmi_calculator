@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Exit immediately if any command exits with a non-zero status
+set -e
+
+# Prompt the user
+echo "Did you change the version number? Press Enter to continue."
+
+# Wait for the user to press Enter
+read -r
+
+# Get the directory of the script
+DIR="$( cd "$( dirname "$( realpath "${BASH_SOURCE[0]}" )" )" && pwd )"
+
+# Change the current working directory to the script's directory
+cd "$DIR"
+
+#################### Build that app ####################
+# get password
+source secrets.sh
+
+# go up one level
+cd ..
+
+# Make sure it's updated
+git checkout main
+git pull
+
+# Clean previous build artifacts
+flutter clean
+
+# Build the Flutter app for iOS
+flutter build ipa --release
+
+# Upload it to the AppStore
+echo ""
+echo "Uploading to app store..."
+xcrun altool --upload-app --type ios \
+    -f build/ios/ipa/*.ipa \
+    -u jdegaston5@gmail.com \
+    -p "$PASSWORD"
+
+# Provide any necessary post-processing steps or notifications
+echo "Build and upload completed successfully!"
