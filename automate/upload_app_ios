@@ -3,6 +3,10 @@
 # Exit immediately if any command exits with a non-zero status
 set -e
 
+# Unlock the keychain for codesign
+# https://stackoverflow.com/a/73759721/16226237
+security unlock-keychain -p 1231
+
 # Prompt the user
 echo "Did you change the version number? Press Enter to continue."
 
