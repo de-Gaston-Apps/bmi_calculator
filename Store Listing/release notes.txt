@@ -1,5 +1,5 @@
 <en-US>
-We have another update for you to make this app even better!
+We have another update for you to make your BMI calculator even better!
 
 - Better UI: Experience a sleek and modern design for an enhanced user interface.
 - Improved Compatibility: We've optimized the app to work better with certain phones, ensuring a smoother experience.
