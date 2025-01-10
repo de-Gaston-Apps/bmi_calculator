@@ -14,15 +14,15 @@ dependencies:
   toggle_switch: ^2.1.0
   cupertino_icons: ^1.0.2
   url_launcher: ^6.1.11
-  google_fonts: ^4.0.4
+  google_fonts: ^6.2.1
   in_app_review: ^2.0.8
   shared_preferences: ^2.2.2
 
 dev_dependencies:
-  flutter_launcher_icons: "^0.13.1"
+  flutter_launcher_icons: ^0.14.2
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true
