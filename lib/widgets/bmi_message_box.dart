@@ -42,7 +42,7 @@ class BmiMessageBoxState extends State<BmiMessageBox> {
               header,
               textAlign: TextAlign.center,
               softWrap: true,
-              style: Theme.of(context).textTheme.headlineLarge,
+              style: TextStyle(fontSize: 40),
             ),
           ),
 
@@ -56,7 +56,7 @@ class BmiMessageBoxState extends State<BmiMessageBox> {
           //     subtitle,
           //     textAlign: TextAlign.center,
           //     softWrap: true,
-          //     style: Theme.of(context).textTheme.titleMedium,
+          //     style: TextStyle(fontSize: 20),
           //   ),
           // ),
 
@@ -66,10 +66,12 @@ class BmiMessageBoxState extends State<BmiMessageBox> {
               left: DEFALT_PADDING_SIZE,
               right: DEFALT_PADDING_SIZE,
             ),
-            child: Text(idealWeight,
-                textAlign: TextAlign.center,
-                softWrap: true,
-                style: Theme.of(context).textTheme.titleMedium),
+            child: Text(
+              idealWeight,
+              textAlign: TextAlign.center,
+              softWrap: true,
+              style: TextStyle(fontSize: 20),
+            ),
           ),
 
           // ----------------- Main text ----------------- //
@@ -78,7 +80,7 @@ class BmiMessageBoxState extends State<BmiMessageBox> {
             child: Text(
               text,
               softWrap: true,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: TextStyle(fontSize: 20),
             ),
           ),
         ],

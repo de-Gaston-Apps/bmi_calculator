@@ -71,7 +71,7 @@ class HeightSelectorState extends State<HeightSelector> {
           children: [
             Text(
               HEIGHT_TEXT,
-              style: Theme.of(context).textTheme.titleLarge,
+              style: TextStyle(fontSize: 40),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

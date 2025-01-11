@@ -59,9 +59,10 @@ class SplashScreenState extends State<SplashScreen> {
         children: [
           Text(
             WELCOME_MESSAGE,
-            style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                  fontStyle: FontStyle.italic,
-                ),
+            style: TextStyle(
+              fontSize: 48,
+              fontStyle: FontStyle.italic,
+            ),
           ),
           const SizedBox(height: BIGGER_PADDING_SIZE * 3),
           AnimatedScale(

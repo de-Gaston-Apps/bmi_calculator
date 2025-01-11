@@ -8,10 +8,12 @@ class BmiTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      "$BMI_STRING ",
-      style: Theme.of(context).textTheme.displayMedium?.copyWith(
-            color: MINT_GREEN,
-          ),
+      BMI_STRING,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        fontSize: 48,
+        color: MINT_GREEN,
+      ),
     );
   }
 }

@@ -8,7 +8,7 @@ class BmiNumber extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       "$bmi",
-      style: Theme.of(context).textTheme.displayLarge,
+      style: TextStyle(fontSize: 40),
     );
   }
 }

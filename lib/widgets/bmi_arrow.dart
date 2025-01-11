@@ -33,7 +33,11 @@ class BmiArrow extends StatelessWidget {
           Align(
             child: Container(
               width: ARROW_LINE_WIDTH,
-              decoration: const BoxDecoration(color: Colors.black),
+              decoration: BoxDecoration(
+                color: Theme.of(context).brightness == Brightness.light
+                    ? Colors.black
+                    : Colors.white,
+              ),
             ),
           ),
           Positioned(

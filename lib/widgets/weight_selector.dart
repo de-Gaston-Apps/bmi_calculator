@@ -50,7 +50,7 @@ class WeightSelectorState extends State<WeightSelector> {
           children: [
             Text(
               WEIGHT_TEXT,
-              style: Theme.of(context).textTheme.titleLarge,
+              style: TextStyle(fontSize: 40),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
