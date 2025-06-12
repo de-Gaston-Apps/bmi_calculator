@@ -8,7 +8,9 @@ import 'package:bmi_calculator/widgets/bmi_title.dart';
 import 'package:bmi_calculator/widgets/weight_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/widgets/height_selector.dart';
+import 'package:bmi_calculator/handlers/database_handler.dart';
 import 'package:bmi_calculator/widgets/scaffold_container.dart';
+import 'package:bmi_calculator/screens/chart_screen.dart';
 
 class BmiScreen extends StatefulWidget {
   const BmiScreen({super.key});
@@ -23,6 +25,13 @@ class BmiScreenState extends State<BmiScreen> {
   double height = BMI_ERROR;
   double weight = BMI_ERROR;
   BmiCalculator bmiCalculator = BmiCalculator();
+  late DatabaseHandler databaseHandler;
+
+  @override
+  void initState() {
+    super.initState();
+    databaseHandler = DatabaseHandler.instance;
+  }
 
   void heightCallback(double h, bool isMetric) {
     if (!isMetric) {
@@ -48,6 +57,15 @@ class BmiScreenState extends State<BmiScreen> {
     try {
       newBmi = bmiCalculator.getBmi(weight, height);
       newBmi = makeBmiPretty(newBmi);
+      // Save BMI record if the calculation is valid
+      if (newBmi != DEFAULT_BMI && weight > 0 && height > 0 && newBmi != BMI_ERROR && newBmi != LOW_BMI_ERROR && newBmi != HIGH_BMI_ERROR) {
+        try {
+          databaseHandler.saveBmiRecord(newBmi, weight);
+        } catch (e) {
+          debugPrint("Error saving BMI record: $e");
+          // Optionally, show a SnackBar or other user notification
+        }
+      }
       bmi = newBmi;
     } on BmiException catch (e) {
       bmi = DEFAULT_BMI;
@@ -105,6 +123,19 @@ class BmiScreenState extends State<BmiScreen> {
             Padding(
               padding: const EdgeInsets.all(BIGGER_PADDING_SIZE),
               child: BmiMessageBox(bmi, height, isWeightMetric),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: DEFAULT_PADDING_SIZE),
+              child: ElevatedButton.icon(
+                icon: const Icon(Icons.history),
+                label: const Text("View History"),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ChartScreen()),
+                  );
+                },
+              ),
             ),
           ],
         ),
