@@ -1,4 +1,5 @@
 // ignore_for_file: constant_identifier_names
+import 'dart:math';
 import 'package:bmi_calculator/data/bmi_error.dart';
 import 'package:bmi_calculator/vars/globals.dart';
 import 'package:bmi_calculator/vars/strings.dart';
@@ -13,18 +14,31 @@ const CM_PER_METER = 100;
 // Obesity1 = 30 - 35
 // Obesity2 = 35 - 40
 // Obesity3 = BMI > 40
-enum BmiCategory { veryUnder, under, normal, over, obese1, obese2, obese3 }
+enum BmiCategory { veryUnder, under, normal, over, obese1, obese2, obese3, DEFAULT_BMI }
 
 class BmiCalculator {
+  Map<String, String>? _currentBmiMessages;
+  double _currentBmiValueForMessages = DEFAULT_BMI;
+  BmiCategory _currentBmiCategory = BmiCategory.DEFAULT_BMI; // Store current category
+
   // BMI = weight (kg)  / height^2 (meters)
   double getBmi(double weightKg, double heightM) {
     if (weightKg == BMI_ERROR || heightM == BMI_ERROR) {
+      _currentBmiCategory = BmiCategory.DEFAULT_BMI; // Reset on error
+      _currentBmiMessages = null;
       throw BmiException("At least one of the inputs was BMI_ERROR");
     }
     if (weightKg <= 0 || heightM <= 0) {
+      _currentBmiCategory = BmiCategory.DEFAULT_BMI; // Reset on error
+      _currentBmiMessages = null;
       throw BmiException("At least one of the inputs was less than or equal 0");
     }
-    return weightKg / (heightM * heightM);
+    double bmi = weightKg / (heightM * heightM);
+    // Update category and messages when BMI is calculated
+    _currentBmiValueForMessages = bmi;
+    _currentBmiCategory = getCategory(bmi);
+    _currentBmiMessages = _getRandomPersonaMessages(_currentBmiCategory);
+    return bmi;
   }
 
   double metersToFeet(double meters) {
@@ -45,6 +59,7 @@ class BmiCalculator {
 
   // See comment above
   BmiCategory getCategory(double bmi) {
+    if (bmi == DEFAULT_BMI) return BmiCategory.DEFAULT_BMI; // Handle DEFAULT_BMI case
     if (bmi <= 16.5) {
       return BmiCategory.veryUnder;
     } else if (bmi < 18.5) {
@@ -62,67 +77,157 @@ class BmiCalculator {
     }
   }
 
-  String getBmiMessageHeader(double bmi) {
-    if (bmi == DEFAULT_BMI) return DEFAULT_WEIGHT_MESSAGE_HEADER;
-    BmiCategory category = getCategory(bmi);
-    if (category == BmiCategory.veryUnder) {
-      return VERY_UNDER_MESSAGE_HEADER;
-    } else if (category == BmiCategory.under) {
-      return UNDER_WEIGHT_MESSAGE_HEADER;
-    } else if (category == BmiCategory.normal) {
-      return NORMAL_WEIGHT_MESSAGE_HEADER;
-    } else if (category == BmiCategory.over) {
-      return OVER_WEIGHT_MESSAGE_HEADER;
-    } else if (category == BmiCategory.obese1) {
-      return OBESE1_WEIGHT_MESSAGE_HEADER;
-    } else if (category == BmiCategory.obese2) {
-      return OBESE2_WEIGHT_MESSAGE_HEADER;
-    } else if (category == BmiCategory.obese3) {
-      return OBESE3_WEIGHT_MESSAGE_HEADER;
+  Map<String, String> _getRandomPersonaMessages(BmiCategory category) {
+    final random = Random();
+    int persona = random.nextInt(3); // 0: SF, 1: PT, 2: CF
+
+    String header = "";
+    String subtitle = "";
+    String text = "";
+
+    switch (category) {
+      case BmiCategory.veryUnder:
+        subtitle = VERY_UNDER_MESSAGE_SUBTITLE_SF; // Subtitle is same for all
+        if (persona == 0) {
+          header = VERY_UNDER_MESSAGE_HEADER_SF;
+          text = VERY_UNDER_MESSAGE_TEXT_SF;
+        } else if (persona == 1) {
+          header = VERY_UNDER_MESSAGE_HEADER_PT;
+          text = VERY_UNDER_MESSAGE_TEXT_PT;
+        } else {
+          header = VERY_UNDER_MESSAGE_HEADER_CF;
+          text = VERY_UNDER_MESSAGE_TEXT_CF;
+        }
+        break;
+      case BmiCategory.under:
+        subtitle = UNDER_WEIGHT_MESSAGE_SUBTITLE_SF;
+        if (persona == 0) {
+          header = UNDER_WEIGHT_MESSAGE_HEADER_SF;
+          text = UNDER_WEIGHT_MESSAGE_TEXT_SF;
+        } else if (persona == 1) {
+          header = UNDER_WEIGHT_MESSAGE_HEADER_PT;
+          text = UNDER_WEIGHT_MESSAGE_TEXT_PT;
+        } else {
+          header = UNDER_WEIGHT_MESSAGE_HEADER_CF;
+          text = UNDER_WEIGHT_MESSAGE_TEXT_CF;
+        }
+        break;
+      case BmiCategory.normal:
+        subtitle = NORMAL_WEIGHT_MESSAGE_SUBTITLE_SF;
+        if (persona == 0) {
+          header = NORMAL_WEIGHT_MESSAGE_HEADER_SF;
+          text = NORMAL_WEIGHT_MESSAGE_TEXT_SF;
+        } else if (persona == 1) {
+          header = NORMAL_WEIGHT_MESSAGE_HEADER_PT;
+          text = NORMAL_WEIGHT_MESSAGE_TEXT_PT;
+        } else {
+          header = NORMAL_WEIGHT_MESSAGE_HEADER_CF;
+          text = NORMAL_WEIGHT_MESSAGE_TEXT_CF;
+        }
+        break;
+      case BmiCategory.over:
+        subtitle = OVER_WEIGHT_MESSAGE_SUBTITLE_SF;
+        if (persona == 0) {
+          header = OVER_WEIGHT_MESSAGE_HEADER_SF;
+          text = OVER_WEIGHT_MESSAGE_TEXT_SF;
+        } else if (persona == 1) {
+          header = OVER_WEIGHT_MESSAGE_HEADER_PT;
+          text = OVER_WEIGHT_MESSAGE_TEXT_PT;
+        } else {
+          header = OVER_WEIGHT_MESSAGE_HEADER_CF;
+          text = OVER_WEIGHT_MESSAGE_TEXT_CF;
+        }
+        break;
+      case BmiCategory.obese1:
+        subtitle = OBESE1_WEIGHT_MESSAGE_SUBTITLE_SF;
+        if (persona == 0) {
+          header = OBESE1_WEIGHT_MESSAGE_HEADER_SF;
+          text = OBESE1_WEIGHT_MESSAGE_TEXT_SF;
+        } else if (persona == 1) {
+          header = OBESE1_WEIGHT_MESSAGE_HEADER_PT;
+          text = OBESE1_WEIGHT_MESSAGE_TEXT_PT;
+        } else {
+          header = OBESE1_WEIGHT_MESSAGE_HEADER_CF;
+          text = OBESE1_WEIGHT_MESSAGE_TEXT_CF;
+        }
+        break;
+      case BmiCategory.obese2:
+        subtitle = OBESE2_WEIGHT_MESSAGE_SUBTITLE_SF;
+        if (persona == 0) {
+          header = OBESE2_WEIGHT_MESSAGE_HEADER_SF;
+          text = OBESE2_WEIGHT_MESSAGE_TEXT_SF;
+        } else if (persona == 1) {
+          header = OBESE2_WEIGHT_MESSAGE_HEADER_PT;
+          text = OBESE2_WEIGHT_MESSAGE_TEXT_PT;
+        } else {
+          header = OBESE2_WEIGHT_MESSAGE_HEADER_CF;
+          text = OBESE2_WEIGHT_MESSAGE_TEXT_CF;
+        }
+        break;
+      case BmiCategory.obese3:
+        subtitle = OBESE3_WEIGHT_MESSAGE_SUBTITLE_SF;
+        if (persona == 0) {
+          header = OBESE3_WEIGHT_MESSAGE_HEADER_SF;
+          text = OBESE3_WEIGHT_MESSAGE_TEXT_SF;
+        } else if (persona == 1) {
+          header = OBESE3_WEIGHT_MESSAGE_HEADER_PT;
+          text = OBESE3_WEIGHT_MESSAGE_TEXT_PT;
+        } else {
+          header = OBESE3_WEIGHT_MESSAGE_HEADER_CF;
+          text = OBESE3_WEIGHT_MESSAGE_TEXT_CF;
+        }
+        break;
+      case BmiCategory.DEFAULT_BMI: // Should not happen if called correctly
+        return {
+          'header': DEFAULT_WEIGHT_MESSAGE_HEADER,
+          'subtitle': DEFAULT_WEIGHT_MESSAGE_SUBTITLE,
+          'text': DEFAULT_WEIGHT_MESSAGE_TEXT,
+        };
     }
-    return DEFAULT_WEIGHT_MESSAGE_HEADER;
+    return {'header': header, 'subtitle': subtitle, 'text': text};
+  }
+
+  void _ensureMessagesAreUpToDate(double bmi) {
+    if (bmi == DEFAULT_BMI) {
+      if (_currentBmiCategory != BmiCategory.DEFAULT_BMI) {
+        _currentBmiMessages = {
+          'header': DEFAULT_WEIGHT_MESSAGE_HEADER,
+          'subtitle': DEFAULT_WEIGHT_MESSAGE_SUBTITLE,
+          'text': DEFAULT_WEIGHT_MESSAGE_TEXT,
+        };
+        _currentBmiCategory = BmiCategory.DEFAULT_BMI;
+        _currentBmiValueForMessages = DEFAULT_BMI;
+      }
+    } else if (bmi != _currentBmiValueForMessages || _currentBmiMessages == null) {
+      // This case is mostly handled by getBmi, but good for safety
+      _currentBmiValueForMessages = bmi;
+      _currentBmiCategory = getCategory(bmi);
+      _currentBmiMessages = _getRandomPersonaMessages(_currentBmiCategory);
+    }
+  }
+
+  String getBmiMessageHeader(double bmi) {
+    _ensureMessagesAreUpToDate(bmi);
+    if (bmi == DEFAULT_BMI || _currentBmiMessages == null) {
+      return DEFAULT_WEIGHT_MESSAGE_HEADER;
+    }
+    return _currentBmiMessages!['header']!;
   }
 
   String getBmiMessageSubtitle(double bmi) {
-    if (bmi == DEFAULT_BMI) return DEFAULT_WEIGHT_MESSAGE_SUBTITLE;
-    BmiCategory category = getCategory(bmi);
-    if (category == BmiCategory.veryUnder) {
-      return VERY_UNDER_MESSAGE_SUBTITLE;
-    } else if (category == BmiCategory.under) {
-      return UNDER_WEIGHT_MESSAGE_SUBTITLE;
-    } else if (category == BmiCategory.normal) {
-      return NORMAL_WEIGHT_MESSAGE_SUBTITLE;
-    } else if (category == BmiCategory.over) {
-      return OVER_WEIGHT_MESSAGE_SUBTITLE;
-    } else if (category == BmiCategory.obese1) {
-      return OBESE1_WEIGHT_MESSAGE_SUBTITLE;
-    } else if (category == BmiCategory.obese2) {
-      return OBESE2_WEIGHT_MESSAGE_SUBTITLE;
-    } else if (category == BmiCategory.obese3) {
-      return OBESE3_WEIGHT_MESSAGE_SUBTITLE;
+    _ensureMessagesAreUpToDate(bmi);
+    if (bmi == DEFAULT_BMI || _currentBmiMessages == null) {
+      return DEFAULT_WEIGHT_MESSAGE_SUBTITLE;
     }
-    return DEFAULT_WEIGHT_MESSAGE_SUBTITLE;
+    return _currentBmiMessages!['subtitle']!;
   }
 
   String getBmiMessageText(double bmi) {
-    if (bmi == DEFAULT_BMI) return DEFAULT_WEIGHT_MESSAGE_TEXT;
-    BmiCategory category = getCategory(bmi);
-    if (category == BmiCategory.veryUnder) {
-      return VERY_UNDER_MESSAGE_TEXT;
-    } else if (category == BmiCategory.under) {
-      return UNDER_WEIGHT_MESSAGE_TEXT;
-    } else if (category == BmiCategory.normal) {
-      return NORMAL_WEIGHT_MESSAGE_TEXT;
-    } else if (category == BmiCategory.over) {
-      return OVER_WEIGHT_MESSAGE_TEXT;
-    } else if (category == BmiCategory.obese1) {
-      return OBESE1_WEIGHT_MESSAGE_TEXT;
-    } else if (category == BmiCategory.obese2) {
-      return OBESE2_WEIGHT_MESSAGE_TEXT;
-    } else if (category == BmiCategory.obese3) {
-      return OBESE3_WEIGHT_MESSAGE_TEXT;
+    _ensureMessagesAreUpToDate(bmi);
+    if (bmi == DEFAULT_BMI || _currentBmiMessages == null) {
+      return DEFAULT_WEIGHT_MESSAGE_TEXT;
     }
-    return DEFAULT_WEIGHT_MESSAGE_TEXT;
+    return _currentBmiMessages!['text']!;
   }
 
   double _roundOneDecimal(double d) {

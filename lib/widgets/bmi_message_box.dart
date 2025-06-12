@@ -17,7 +17,7 @@ class BmiMessageBoxState extends State<BmiMessageBox> {
   Widget build(BuildContext context) {
     BmiCalculator calculator = BmiCalculator();
     final String header = calculator.getBmiMessageHeader(widget.bmi);
-    // final String subtitle = calculator.getBmiMessageSubtitle(widget.bmi);
+    final String subtitle = calculator.getBmiMessageSubtitle(widget.bmi);
     final String text = calculator.getBmiMessageText(widget.bmi);
     final String idealWeight = widget.bmi == DEFAULT_BMI
         ? ""
@@ -47,18 +47,18 @@ class BmiMessageBoxState extends State<BmiMessageBox> {
           ),
 
           // ----------------- Subtitle BMI Range ----------------- //
-          // Padding(
-          //   padding: const EdgeInsets.only(
-          //     left: DEFALT_PADDING_SIZE,
-          //     right: DEFALT_PADDING_SIZE,
-          //   ),
-          //   child: Text(
-          //     subtitle,
-          //     textAlign: TextAlign.center,
-          //     softWrap: true,
-          //     style: TextStyle(fontSize: 20),
-          //   ),
-          // ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: DEFALT_PADDING_SIZE,
+              right: DEFALT_PADDING_SIZE,
+            ),
+            child: Text(
+              subtitle,
+              textAlign: TextAlign.center,
+              softWrap: true,
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
 
           // ----------------- Ideal Weight ----------------- //
           Padding(
