@@ -17,7 +17,7 @@ class BmiMessageBoxState extends State<BmiMessageBox> {
   Widget build(BuildContext context) {
     BmiCalculator calculator = BmiCalculator();
     final String header = calculator.getBmiMessageHeader(widget.bmi);
-    // final String subtitle = calculator.getBmiMessageSubtitle(widget.bmi);
+    final String subtitle = calculator.getBmiMessageSubtitle(widget.bmi);
     final String text = calculator.getBmiMessageText(widget.bmi);
     final String idealWeight = widget.bmi == DEFAULT_BMI
         ? ""
@@ -34,43 +34,42 @@ class BmiMessageBoxState extends State<BmiMessageBox> {
         children: [
           // ----------------- Header ----------------- //
           Padding(
-            padding: const EdgeInsets.only(
-              left: DEFALT_PADDING_SIZE,
-              right: DEFALT_PADDING_SIZE,
+            padding: const EdgeInsets.symmetric(
+              horizontal: DEFALT_PADDING_SIZE,
             ),
             child: Text(
               header,
               textAlign: TextAlign.center,
               softWrap: true,
-              style: TextStyle(fontSize: 40),
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             ),
           ),
 
           // ----------------- Subtitle BMI Range ----------------- //
-          // Padding(
-          //   padding: const EdgeInsets.only(
-          //     left: DEFALT_PADDING_SIZE,
-          //     right: DEFALT_PADDING_SIZE,
-          //   ),
-          //   child: Text(
-          //     subtitle,
-          //     textAlign: TextAlign.center,
-          //     softWrap: true,
-          //     style: TextStyle(fontSize: 20),
-          //   ),
-          // ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: DEFALT_PADDING_SIZE,
+            ),
+            child: Text(
+              subtitle,
+              textAlign: TextAlign.center,
+              softWrap: true,
+              style: TextStyle(fontSize: 16),
+            ),
+          ),
+
+          SizedBox(height: 6),
 
           // ----------------- Ideal Weight ----------------- //
           Padding(
-            padding: const EdgeInsets.only(
-              left: DEFALT_PADDING_SIZE,
-              right: DEFALT_PADDING_SIZE,
+            padding: const EdgeInsets.symmetric(
+              horizontal: DEFALT_PADDING_SIZE,
             ),
             child: Text(
               idealWeight,
               textAlign: TextAlign.center,
               softWrap: true,
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
           ),
 
@@ -80,7 +79,7 @@ class BmiMessageBoxState extends State<BmiMessageBox> {
             child: Text(
               text,
               softWrap: true,
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 14),
             ),
           ),
         ],

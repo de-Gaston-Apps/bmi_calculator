@@ -29,44 +29,46 @@ const String INPUT_ERROR_MESSAGE_HEADER = "Oops!";
 const String INPUT_ERROR_MESSAGE_SUBTITLE = "❌";
 const String INPUT_ERROR_MESSAGE_TEXT = "There is an error in your input";
 
-const String DEFAULT_WEIGHT_MESSAGE_HEADER = "Input values";
-const String DEFAULT_WEIGHT_MESSAGE_SUBTITLE = "👆";
-const String DEFAULT_WEIGHT_MESSAGE_TEXT = "Input values to calculate BMI.";
+const String DEFAULT_WEIGHT_MESSAGE_HEADER = "Input Values";
+const String DEFAULT_WEIGHT_MESSAGE_SUBTITLE = "";
+const String DEFAULT_WEIGHT_MESSAGE_TEXT =
+    "Enter your height and weight to calculate BMI.";
 
-const String VERY_UNDER_MESSAGE_HEADER = "Very Under Weight";
-const String VERY_UNDER_MESSAGE_SUBTITLE = "BMI less than 16.5";
-const String VERY_UNDER_MESSAGE_TEXT =
-    "In the 'very underweight' category, a gradual adjustment of diet and lifestyle can contribute to improved well-being. Remember, achieving a healthier weight takes time.";
+// ------------------- Straightforward Thinker Persona ------------------- //
+const String VERY_UNDER_MESSAGE_HEADER_SF = "Very Under Weight";
+const String VERY_UNDER_MESSAGE_SUBTITLE_SF = "BMI less than 16.5";
+const String VERY_UNDER_MESSAGE_TEXT_SF =
+    "Your BMI suggests you are in the 'very underweight' category. It's a good idea to focus on gradual adjustments to your diet and lifestyle, which can help improve your overall well-being. Achieving a healthier weight is a journey, and consistency is key.";
 
-const String UNDER_WEIGHT_MESSAGE_HEADER = "Under Weight";
-const String UNDER_WEIGHT_MESSAGE_SUBTITLE = "BMI 16.5 - 18.5";
-const String UNDER_WEIGHT_MESSAGE_TEXT =
-    "The 'underweight' category suggests a focus on maintaining a balanced diet and incorporating light exercise into one's routine. Small, sustainable changes can make a difference in health.";
+const String UNDER_WEIGHT_MESSAGE_HEADER_SF = "Under Weight";
+const String UNDER_WEIGHT_MESSAGE_SUBTITLE_SF = "BMI 16.5 - 18.5";
+const String UNDER_WEIGHT_MESSAGE_TEXT_SF =
+    "Your BMI places you in the 'underweight' category. Consider focusing on a balanced diet and incorporating regular, light exercise. Small, sustainable changes can make a significant difference to your health.";
 
-const String NORMAL_WEIGHT_MESSAGE_HEADER = "Normal Weight";
-const String NORMAL_WEIGHT_MESSAGE_SUBTITLE = "BMI 18.5 – 24.9";
-const String NORMAL_WEIGHT_MESSAGE_TEXT =
-    "Being in the 'normal weight' category is associated with lower health risks. Prioritizing balanced nutrition and regular physical activity is key to maintaining health.";
+const String NORMAL_WEIGHT_MESSAGE_HEADER_SF = "Normal Weight";
+const String NORMAL_WEIGHT_MESSAGE_SUBTITLE_SF = "BMI 18.5 – 24.9";
+const String NORMAL_WEIGHT_MESSAGE_TEXT_SF =
+    "Great! Your BMI is in the 'normal weight' category, which is associated with lower health risks. Continuing to prioritize balanced nutrition and regular physical activity will help you maintain your health.";
 
-const String OVER_WEIGHT_MESSAGE_HEADER = "Over Weight";
-const String OVER_WEIGHT_MESSAGE_SUBTITLE = "BMI 25 – 29.9";
-const String OVER_WEIGHT_MESSAGE_TEXT =
-    "The 'Overweight' category presents an opportunity to adopt healthier habits, such as eating well and staying active, to manage weight effectively. Small steps can lead to positive changes in health.";
+const String OVER_WEIGHT_MESSAGE_HEADER_SF = "Over Weight";
+const String OVER_WEIGHT_MESSAGE_SUBTITLE_SF = "BMI 25 – 29.9";
+const String OVER_WEIGHT_MESSAGE_TEXT_SF =
+    "Your BMI indicates you are in the 'overweight' category. This is a good opportunity to adopt healthier habits. Focusing on mindful eating and consistent physical activity can help you manage your weight effectively. Small steps can lead to positive health changes.";
 
-const String OBESE1_WEIGHT_MESSAGE_HEADER = "Obese I";
-const String OBESE1_WEIGHT_MESSAGE_SUBTITLE = "BMI 25 – 29.9";
-const String OBESE1_WEIGHT_MESSAGE_TEXT =
-    "The 'obesity I' category signifies the importance of weight management. Gradual lifestyle changes, including dietary adjustments and regular activity, can contribute to a healthier weight.";
+const String OBESE1_WEIGHT_MESSAGE_HEADER_SF = "Obese I";
+const String OBESE1_WEIGHT_MESSAGE_SUBTITLE_SF = "BMI 25 – 29.9";
+const String OBESE1_WEIGHT_MESSAGE_TEXT_SF =
+    "Your BMI falls into the 'Obese I' category. This highlights the importance of focusing on weight management. Gradual lifestyle changes, such as dietary adjustments and regular, enjoyable physical activity, can contribute positively to a healthier weight.";
 
-const String OBESE2_WEIGHT_MESSAGE_HEADER = "Obese II";
-const String OBESE2_WEIGHT_MESSAGE_SUBTITLE = "BMI 35 - 40";
-const String OBESE2_WEIGHT_MESSAGE_TEXT =
-    "In 'obesity II,' it's important to work towards a healthier weight through sustainable lifestyle changes. This category indicates significant obesity, but with determination and gradual modifications to habits, progress can be made.";
+const String OBESE2_WEIGHT_MESSAGE_HEADER_SF = "Obese II";
+const String OBESE2_WEIGHT_MESSAGE_SUBTITLE_SF = "BMI 35 - 40";
+const String OBESE2_WEIGHT_MESSAGE_TEXT_SF =
+    "Your BMI is in the 'Obese II' category, indicating significant obesity. It's important to work towards a healthier weight through sustainable lifestyle changes. With determination and gradual modifications to your habits, progress can certainly be made.";
 
-const String OBESE3_WEIGHT_MESSAGE_HEADER = "Obese III";
-const String OBESE3_WEIGHT_MESSAGE_SUBTITLE = "BMI greater than 40";
-const String OBESE3_WEIGHT_MESSAGE_TEXT =
-    "The 'obesity 3' category indicates severe obesity, which can have significant health implications. Prioritizing well-being through healthy choices, such as diet and physical activity, is essential for overall health. Remember, taking the first step towards a healthier lifestyle is important";
+const String OBESE3_WEIGHT_MESSAGE_HEADER_SF = "Obese III";
+const String OBESE3_WEIGHT_MESSAGE_SUBTITLE_SF = "BMI greater than 40";
+const String OBESE3_WEIGHT_MESSAGE_TEXT_SF =
+    "Your BMI places you in the 'Obese III' category, which suggests severe obesity and can have significant health implications. Prioritizing your well-being through healthy dietary choices and suitable physical activity is essential.";
 
 /// ------------------- Info page ------------------- ///
 const String SETTINGS_PAGE_TITLE = "Settings";
