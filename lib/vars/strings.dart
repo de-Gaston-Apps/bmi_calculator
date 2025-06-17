@@ -29,9 +29,10 @@ const String INPUT_ERROR_MESSAGE_HEADER = "Oops!";
 const String INPUT_ERROR_MESSAGE_SUBTITLE = "❌";
 const String INPUT_ERROR_MESSAGE_TEXT = "There is an error in your input";
 
-const String DEFAULT_WEIGHT_MESSAGE_HEADER = "Input values";
-const String DEFAULT_WEIGHT_MESSAGE_SUBTITLE = "👆";
-const String DEFAULT_WEIGHT_MESSAGE_TEXT = "Input values to calculate BMI.";
+const String DEFAULT_WEIGHT_MESSAGE_HEADER = "Input Values";
+const String DEFAULT_WEIGHT_MESSAGE_SUBTITLE = "";
+const String DEFAULT_WEIGHT_MESSAGE_TEXT =
+    "Enter your height and weight to calculate BMI.";
 
 // ------------------- Straightforward Thinker Persona ------------------- //
 const String VERY_UNDER_MESSAGE_HEADER_SF = "Very Under Weight";
@@ -67,7 +68,7 @@ const String OBESE2_WEIGHT_MESSAGE_TEXT_SF =
 const String OBESE3_WEIGHT_MESSAGE_HEADER_SF = "Obese III";
 const String OBESE3_WEIGHT_MESSAGE_SUBTITLE_SF = "BMI greater than 40";
 const String OBESE3_WEIGHT_MESSAGE_TEXT_SF =
-    "Your BMI places you in the 'Obese III' category, which suggests severe obesity and can have significant health implications. Prioritizing your well-being through healthy dietary choices and suitable physical activity is essential. Taking the first step towards a healthier lifestyle is an important one.";
+    "Your BMI places you in the 'Obese III' category, which suggests severe obesity and can have significant health implications. Prioritizing your well-being through healthy dietary choices and suitable physical activity is essential.";
 
 /// ------------------- Info page ------------------- ///
 const String SETTINGS_PAGE_TITLE = "Settings";
